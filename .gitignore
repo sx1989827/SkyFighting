@@ -1,1 +1,8 @@
 Pods/
+*.xcscheme
+
+*.xcuserstate
+
+SkyFighting.xcodeproj/xcuserdata/lxx.xcuserdatad/xcschemes/xcschememanagement.plist
+
+*.xcuserstate
