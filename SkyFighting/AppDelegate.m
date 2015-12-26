@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
+#import "Header.h"
+#import "MainTabVC.h"
 @interface AppDelegate ()
 
 @end
@@ -16,7 +17,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    _window=[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    [[UserDefaults sharedInstance] incLoginCount];
+    UITabBarController *tab=[[MainTabVC alloc] init];
+    self.window.rootViewController=tab;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

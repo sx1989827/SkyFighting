@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MainTabVC.h
 //  SkyFighting
 //
 //  Created by 孙昕 on 15/12/24.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface MainTabVC : UITabBarController
 
 @end
-
