@@ -8,7 +8,6 @@
 #import <UIKit/UIKit.h>
 #import "Util.h"
 #import "UserDefaults.h"
-#import "AppDelegate.h"
 #import <SVProgressHUD.h>
 #import <POP.h>
 #import "TipView.h"

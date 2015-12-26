@@ -16,7 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.bHud=NO;
+    self.title=@"首页";
+    [self hideBackButton];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,4 +36,9 @@
 }
 */
 
+- (IBAction)onLevel:(id)sender {
+}
+
+- (IBAction)onSurvival:(id)sender {
+}
 @end

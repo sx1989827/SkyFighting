@@ -22,6 +22,7 @@
 -(void)addLevel;
 -(NSArray<UserHistory*>*)historyList;
 -(void)addHistory:(UserHistory*)model;
++(instancetype)sharedInstance;
 @end
 
 

@@ -16,7 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.bHud=NO;
+    self.title=@"历史";
+    [self hideBackButton];
 }
 
 - (void)didReceiveMemoryWarning {

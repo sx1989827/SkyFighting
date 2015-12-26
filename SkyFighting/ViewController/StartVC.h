@@ -9,5 +9,7 @@
 #import "BaseViewController.h"
 
 @interface StartVC : BaseViewController
+- (IBAction)onLevel:(id)sender;
+- (IBAction)onSurvival:(id)sender;
 
 @end

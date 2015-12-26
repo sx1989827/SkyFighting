@@ -91,6 +91,16 @@
     [user setObject:arr forKey:@"history"];
     [user synchronize];
 }
+
++(instancetype)sharedInstance
+{
+    static UserDefaults *obj=nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        obj=[[[self class] alloc] init];
+    });
+    return obj;
+}
 @end
 
 

@@ -7,7 +7,8 @@
 //
 
 #import "MainTabVC.h"
-
+#import "StartVC.h"
+#import "ScoreVC.h"
 @interface MainTabVC ()
 
 @end
@@ -17,7 +18,17 @@
 {
     if(self=[super init])
     {
-        
+        StartVC *vc1=[[StartVC alloc] init];
+        vc1.tabBarItem.title=@"首页";
+        vc1.tabBarItem.image=[[UIImage imageNamed:@"home"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        vc1.tabBarItem.selectedImage=[[UIImage imageNamed:@"homesel"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        ScoreVC *vc2=[[ScoreVC alloc] init];
+        vc2.tabBarItem.title=@"记录";
+        vc2.tabBarItem.image=[[UIImage imageNamed:@"rank"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        vc2.tabBarItem.selectedImage=[[UIImage imageNamed:@"ranksel"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        UINavigationController *nav1=[[UINavigationController alloc] initWithRootViewController:vc1];
+        UINavigationController *nav2=[[UINavigationController alloc] initWithRootViewController:vc2];
+        self.viewControllers=@[nav1,nav2];
     }
     return self;
 }
