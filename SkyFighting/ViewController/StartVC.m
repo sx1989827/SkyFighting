@@ -7,7 +7,8 @@
 //
 
 #import "StartVC.h"
-
+#import "Header.h"
+#import "SGActionView.h"
 @interface StartVC ()
 
 @end
@@ -26,19 +27,39 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)onLevel:(id)sender
+{
+    if([[UserDefaults sharedInstance] level]>0)
+    {
+        [SGActionView showSheetWithTitle:@"请选择" itemTitles:@[@"继续闯关",@"从新开始"] selectedIndex:-1 selectedHandle:^(NSInteger index) {
+            if(index==0)
+            {
+                
+            }
+            else if(index==1)
+            {
+                
+            }
+        }];
+    }
+    else
+    {
+        
+    }
 }
-*/
 
-- (IBAction)onLevel:(id)sender {
-}
-
-- (IBAction)onSurvival:(id)sender {
+- (IBAction)onSurvival:(id)sender
+{
+    
 }
 @end
+
+
+
+
+
+
+
+
+
+

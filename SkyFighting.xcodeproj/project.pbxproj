@@ -34,6 +34,12 @@
 		B52CEE301C2C3316008DE32B /* ScoreVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B52CEE2E1C2C3316008DE32B /* ScoreVC.xib */; };
 		B52CEE341C2C34D4008DE32B /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = B52CEE331C2C34D4008DE32B /* Util.m */; };
 		B52CEE381C2E2FE1008DE32B /* UserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = B52CEE371C2E2FE1008DE32B /* UserDefaults.m */; };
+		B52CEE461C2E4F3C008DE32B /* cellcheck.png in Resources */ = {isa = PBXBuildFile; fileRef = B52CEE3B1C2E4F3C008DE32B /* cellcheck.png */; };
+		B52CEE471C2E4F3C008DE32B /* SGActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B52CEE3D1C2E4F3C008DE32B /* SGActionView.m */; };
+		B52CEE481C2E4F3C008DE32B /* SGAlertMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = B52CEE3F1C2E4F3C008DE32B /* SGAlertMenu.m */; };
+		B52CEE491C2E4F3C008DE32B /* SGBaseMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = B52CEE411C2E4F3C008DE32B /* SGBaseMenu.m */; };
+		B52CEE4A1C2E4F3C008DE32B /* SGGridMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = B52CEE431C2E4F3C008DE32B /* SGGridMenu.m */; };
+		B52CEE4B1C2E4F3C008DE32B /* SGSheetMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = B52CEE451C2E4F3C008DE32B /* SGSheetMenu.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +82,17 @@
 		B52CEE331C2C34D4008DE32B /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
 		B52CEE361C2E2FE1008DE32B /* UserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDefaults.h; sourceTree = "<group>"; };
 		B52CEE371C2E2FE1008DE32B /* UserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefaults.m; sourceTree = "<group>"; };
+		B52CEE3B1C2E4F3C008DE32B /* cellcheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cellcheck.png; sourceTree = "<group>"; };
+		B52CEE3C1C2E4F3C008DE32B /* SGActionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGActionView.h; sourceTree = "<group>"; };
+		B52CEE3D1C2E4F3C008DE32B /* SGActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGActionView.m; sourceTree = "<group>"; };
+		B52CEE3E1C2E4F3C008DE32B /* SGAlertMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGAlertMenu.h; sourceTree = "<group>"; };
+		B52CEE3F1C2E4F3C008DE32B /* SGAlertMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGAlertMenu.m; sourceTree = "<group>"; };
+		B52CEE401C2E4F3C008DE32B /* SGBaseMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGBaseMenu.h; sourceTree = "<group>"; };
+		B52CEE411C2E4F3C008DE32B /* SGBaseMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGBaseMenu.m; sourceTree = "<group>"; };
+		B52CEE421C2E4F3C008DE32B /* SGGridMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGGridMenu.h; sourceTree = "<group>"; };
+		B52CEE431C2E4F3C008DE32B /* SGGridMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGGridMenu.m; sourceTree = "<group>"; };
+		B52CEE441C2E4F3C008DE32B /* SGSheetMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGSheetMenu.h; sourceTree = "<group>"; };
+		B52CEE451C2E4F3C008DE32B /* SGSheetMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGSheetMenu.m; sourceTree = "<group>"; };
 		CD49B49B25C35B1A5D639267 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D74D4AE0A390BDE6D7713197 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -147,6 +164,7 @@
 		B52CEDFB1C2C2880008DE32B /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				B52CEE391C2E4F3C008DE32B /* SGActionView */,
 				B52CEE011C2C299A008DE32B /* BaseVc */,
 				B52CEE0D1C2C299A008DE32B /* IntroView */,
 				B52CEE101C2C299A008DE32B /* TipView */,
@@ -243,6 +261,32 @@
 			path = User;
 			sourceTree = "<group>";
 		};
+		B52CEE391C2E4F3C008DE32B /* SGActionView */ = {
+			isa = PBXGroup;
+			children = (
+				B52CEE3A1C2E4F3C008DE32B /* image */,
+				B52CEE3C1C2E4F3C008DE32B /* SGActionView.h */,
+				B52CEE3D1C2E4F3C008DE32B /* SGActionView.m */,
+				B52CEE3E1C2E4F3C008DE32B /* SGAlertMenu.h */,
+				B52CEE3F1C2E4F3C008DE32B /* SGAlertMenu.m */,
+				B52CEE401C2E4F3C008DE32B /* SGBaseMenu.h */,
+				B52CEE411C2E4F3C008DE32B /* SGBaseMenu.m */,
+				B52CEE421C2E4F3C008DE32B /* SGGridMenu.h */,
+				B52CEE431C2E4F3C008DE32B /* SGGridMenu.m */,
+				B52CEE441C2E4F3C008DE32B /* SGSheetMenu.h */,
+				B52CEE451C2E4F3C008DE32B /* SGSheetMenu.m */,
+			);
+			path = SGActionView;
+			sourceTree = "<group>";
+		};
+		B52CEE3A1C2E4F3C008DE32B /* image */ = {
+			isa = PBXGroup;
+			children = (
+				B52CEE3B1C2E4F3C008DE32B /* cellcheck.png */,
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
 		B711E548EE89A45B495F0C04 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,6 +358,7 @@
 				B52CEE201C2C299A008DE32B /* HUDLoading7.png in Resources */,
 				B52CEE301C2C3316008DE32B /* ScoreVC.xib in Resources */,
 				B52CEE2B1C2C3301008DE32B /* StartVC.xib in Resources */,
+				B52CEE461C2E4F3C008DE32B /* cellcheck.png in Resources */,
 				B52CEE1B1C2C299A008DE32B /* HUDLoading2.png in Resources */,
 				B52CEE221C2C299A008DE32B /* AlertInfo.png in Resources */,
 				B52CEDF41C2BEE8A008DE32B /* LaunchScreen.storyboard in Resources */,
@@ -386,6 +431,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B52CEE261C2C299A008DE32B /* TipView.m in Sources */,
+				B52CEE471C2E4F3C008DE32B /* SGActionView.m in Sources */,
+				B52CEE4A1C2E4F3C008DE32B /* SGGridMenu.m in Sources */,
 				B52CEE2F1C2C3316008DE32B /* ScoreVC.m in Sources */,
 				B52CEDE91C2BEE8A008DE32B /* AppDelegate.m in Sources */,
 				B52CEE181C2C299A008DE32B /* BaseViewController.m in Sources */,
@@ -394,7 +441,10 @@
 				B52CEE381C2E2FE1008DE32B /* UserDefaults.m in Sources */,
 				B52CEE2A1C2C3301008DE32B /* StartVC.m in Sources */,
 				B52CEDE61C2BEE8A008DE32B /* main.m in Sources */,
+				B52CEE4B1C2E4F3C008DE32B /* SGSheetMenu.m in Sources */,
 				B52CEE341C2C34D4008DE32B /* Util.m in Sources */,
+				B52CEE491C2E4F3C008DE32B /* SGBaseMenu.m in Sources */,
+				B52CEE481C2E4F3C008DE32B /* SGAlertMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
