@@ -59,7 +59,6 @@
     [user setInteger:login forKey:@"login"];
     [user synchronize];
 }
-
 -(NSInteger)level
 {
     NSUserDefaults *user=[NSUserDefaults standardUserDefaults];

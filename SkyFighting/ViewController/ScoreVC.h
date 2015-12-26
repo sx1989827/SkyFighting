@@ -7,7 +7,9 @@
 //
 
 #import "BaseViewController.h"
-
+#import <LazyTableView.h>
+#import <LazyTableBaseSection.h>
 @interface ScoreVC : BaseViewController
+@property (strong, nonatomic) IBOutlet LazyTableView *mainTable;
 
 @end
