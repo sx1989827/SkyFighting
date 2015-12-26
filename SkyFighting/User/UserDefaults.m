@@ -85,7 +85,15 @@
 {
     NSUserDefaults *user=[NSUserDefaults standardUserDefaults];
     NSArray* arrTemp=[user arrayForKey:@"history"];
-    NSMutableArray *arr=[NSMutableArray arrayWithArray:arrTemp];
+    NSMutableArray *arr;
+    if(arrTemp==nil)
+    {
+        arr=[[NSMutableArray alloc] initWithCapacity:30];
+    }
+    else
+    {
+        arr=[NSMutableArray arrayWithArray:arrTemp];
+    }
     [arr addObject:model];
     [user setObject:arr forKey:@"history"];
     [user synchronize];
