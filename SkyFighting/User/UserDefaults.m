@@ -78,7 +78,12 @@
 -(NSArray<UserHistory*>*)historyList
 {
     NSUserDefaults *user=[NSUserDefaults standardUserDefaults];
-    return [user arrayForKey:@"history"];
+    NSMutableArray *arr=[[NSMutableArray alloc] initWithCapacity:30];
+    for(NSData *data in [user arrayForKey:@"history"])
+    {
+        [arr addObject:[NSKeyedUnarchiver unarchiveObjectWithData:data]];
+    }
+    return arr;
 }
 
 -(void)addHistory:(UserHistory*)model
@@ -94,7 +99,8 @@
     {
         arr=[NSMutableArray arrayWithArray:arrTemp];
     }
-    [arr addObject:model];
+    NSData *data=[NSKeyedArchiver archivedDataWithRootObject:model];
+    [arr addObject:data];
     [user setObject:arr forKey:@"history"];
     [user synchronize];
 }
