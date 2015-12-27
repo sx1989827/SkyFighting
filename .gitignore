@@ -6,3 +6,5 @@ Pods/
 SkyFighting.xcodeproj/xcuserdata/lxx.xcuserdatad/xcschemes/xcschememanagement.plist
 
 *.xcuserstate
+
+*.xcbkptlist

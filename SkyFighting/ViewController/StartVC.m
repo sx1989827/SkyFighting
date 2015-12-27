@@ -44,7 +44,7 @@
     }
     else
     {
-        
+        [self pushViewController:@"GameVC" Param:nil];
     }
 }
 
