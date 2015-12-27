@@ -42,7 +42,6 @@
 		B5D3F8431C2E844500C749A8 /* StartVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5D3F8271C2E844500C749A8 /* StartVC.xib */; };
 		B5D3F8481C2E87BC00C749A8 /* HistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B5D3F8471C2E87BC00C749A8 /* HistoryCell.m */; };
 		B5D3F84A1C2E87F200C749A8 /* HistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5D3F8491C2E87F200C749A8 /* HistoryCell.xib */; };
-		B5D3F84E1C2E896D00C749A8 /* HistoryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B5D3F84D1C2E896D00C749A8 /* HistoryItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,8 +98,6 @@
 		B5D3F8461C2E87BC00C749A8 /* HistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryCell.h; sourceTree = "<group>"; };
 		B5D3F8471C2E87BC00C749A8 /* HistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryCell.m; sourceTree = "<group>"; };
 		B5D3F8491C2E87F200C749A8 /* HistoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryCell.xib; sourceTree = "<group>"; };
-		B5D3F84C1C2E896D00C749A8 /* HistoryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryItem.h; sourceTree = "<group>"; };
-		B5D3F84D1C2E896D00C749A8 /* HistoryItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryItem.m; sourceTree = "<group>"; };
 		CD49B49B25C35B1A5D639267 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D74D4AE0A390BDE6D7713197 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -147,7 +144,6 @@
 		B52CEDE31C2BEE8A008DE32B /* SkyFighting */ = {
 			isa = PBXGroup;
 			children = (
-				B5D3F84B1C2E894D00C749A8 /* CustomItem */,
 				B5D3F8451C2E879100C749A8 /* CustomCell */,
 				B5D3F7F31C2E844500C749A8 /* Component */,
 				B5D3F8181C2E844500C749A8 /* User */,
@@ -305,15 +301,6 @@
 				B5D3F8491C2E87F200C749A8 /* HistoryCell.xib */,
 			);
 			path = CustomCell;
-			sourceTree = "<group>";
-		};
-		B5D3F84B1C2E894D00C749A8 /* CustomItem */ = {
-			isa = PBXGroup;
-			children = (
-				B5D3F84C1C2E896D00C749A8 /* HistoryItem.h */,
-				B5D3F84D1C2E896D00C749A8 /* HistoryItem.m */,
-			);
-			path = CustomItem;
 			sourceTree = "<group>";
 		};
 		B711E548EE89A45B495F0C04 /* Frameworks */ = {
@@ -476,7 +463,6 @@
 				B5D3F83F1C2E844500C749A8 /* MainTabVC.m in Sources */,
 				B5D3F8371C2E844500C749A8 /* SGSheetMenu.m in Sources */,
 				B5D3F83E1C2E844500C749A8 /* Util.m in Sources */,
-				B5D3F84E1C2E896D00C749A8 /* HistoryItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,53 +10,57 @@
 #import "UserDefaults.h"
 #import "HistoryCell.h"
 @interface ScoreVC ()<LazyTableViewDelegate>
-@property(nonatomic,strong)NSMutableArray  *historyModelArray;
+@property(nonatomic,strong)NSArray  *historyModelArray;
 @end
 
 @implementation ScoreVC
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    _historyModelArray =[[UserDefaults sharedInstance] historyList];
+    [_mainTable registarCell:@"HistoryCell" StrItem:nil];
+    LazyTableBaseSection *sec = [[LazyTableBaseSection alloc]init];
+    sec.headerHeight = 5;
+    sec.titleHeader =@"";
+    [_mainTable addSection:sec];
+    for (int i=0; i<_historyModelArray.count; i++) {
+         UserHistory*history = [self.historyModelArray objectAtIndex:i];
+        if (history.type==0) {
+            [_mainTable addStaticCell:90 CellBlock:^(id cell) {
+                HistoryCell *cl=cell;
+                cl.selectionStyle =UITableViewCellSelectionStyleNone;
+                cl.tyoeLabel.text =@"闯关模式";
+                cl.levelLabel.text = [NSString stringWithFormat:@"等级:%d",history.level];
+                cl.bSuccessLabel.text = history.bSuccess==0?@"已完成":@"未完成";
+                cl.killCountLabel.text = [NSString stringWithFormat:@"杀敌数:%d",history.killCount];
+                cl.userTimeLabel.text = [NSString stringWithFormat:@"用时:%ds",history.useTime];
+                cl.dateLabel.text = [NSString stringWithFormat:@"游戏时间:%@",history.date];
+            } ClickBlock:^(id cell) {
+                
+            }];
+        }
+        else
+        {
+            [_mainTable addStaticCell:60 CellBlock:^(id cell) {
+                HistoryCell *cl=cell;
+                cl.selectionStyle =UITableViewCellSelectionStyleNone;
+                cl.tyoeLabel.text = @"生存模式";
+                cl.killCountLabel.text = [NSString stringWithFormat:@"杀敌数:%d",history.killCount];
+                cl.userTimeLabel.text = [NSString stringWithFormat:@"用时:%ds",history.useTime];
+                cl.dateLabel.text = [NSString stringWithFormat:@"游戏时间:%@",history.date];
+            } ClickBlock:^(id cell) {
+                
+            }];
+        }
+    }
+    [self.mainTable reloadStatic];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.bHud=NO;
     self.title=@"历史";
     [self hideBackButton];
-    _historyModelArray = [[NSMutableArray alloc]initWithCapacity:0];
-    
-    UserHistory*history = [[UserHistory alloc]init];
-    history.type =1;
-    history.level = 2;
-    history.bSuccess = 1;
-    history.killCount =23;
-    history.useTime = 50;
-    history.date =@"2015-12-26";
-    [[UserDefaults sharedInstance] addHistory:history];
-    
     [self.mainTable setDelegateAndDataSource:self];
-    NSData*data = [[NSUserDefaults standardUserDefaults] objectForKey:@"history"];
-    _historyModelArray =[NSKeyedUnarchiver unarchiveObjectWithData:data];
-    [_mainTable registarCell:@"HistoryCell" StrItem:nil];
-    LazyTableBaseSection *sec = [[LazyTableBaseSection alloc]init];
-    sec.headerHeight = 10;
-    sec.titleHeader =@"";
-    [_mainTable addSection:sec];
-    __weak ScoreVC *weakSelf = self;
-    for (int i=0; i<_historyModelArray.count; i++) {
-        [_mainTable addStaticCell:100 CellBlock:^(id cell) {
-            UserHistory*history = [weakSelf.historyModelArray objectAtIndex:i];
-            HistoryCell *cl=cell;
-            cl.tyoeLabel.text = [NSString stringWithFormat:@"%d",history.type];
-            cl.levelLabel.text = [NSString stringWithFormat:@"%d",history.level];
-            cl.bSuccessLabel.text = [NSString stringWithFormat:@"%d",history.bSuccess];
-            cl.killCountLabel.text = [NSString stringWithFormat:@"%d",history.killCount];
-            cl.userTimeLabel.text = [NSString stringWithFormat:@"%d",history.useTime];
-            cl.dateLabel.text = history.date;
-        } ClickBlock:^(id cell) {
-            
-        
-            
-            
-        }];
-    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
