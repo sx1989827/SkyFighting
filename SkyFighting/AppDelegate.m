@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "Header.h"
 #import "MainTabVC.h"
+#import "LoadViewController.h"
+#import "UserDefaults.h"
 @interface AppDelegate ()
 
 @end
@@ -18,9 +20,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     _window=[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    [[UserDefaults sharedInstance] incLoginCount];
-    UITabBarController *tab=[[MainTabVC alloc] init];
-    self.window.rootViewController=tab;
+    if (![[UserDefaults sharedInstance]isFirstLogin]) {
+        LoadViewController *loadView = [[LoadViewController alloc]init];
+        self.window.rootViewController = loadView;
+    }
+    else
+    {
+        UITabBarController *tab=[[MainTabVC alloc] init];
+        self.window.rootViewController=tab;
+    }
     [self.window makeKeyAndVisible];
     return YES;
 }

@@ -47,6 +47,7 @@
 		B5D3F8431C2E844500C749A8 /* StartVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5D3F8271C2E844500C749A8 /* StartVC.xib */; };
 		B5D3F8481C2E87BC00C749A8 /* HistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B5D3F8471C2E87BC00C749A8 /* HistoryCell.m */; };
 		B5D3F84A1C2E87F200C749A8 /* HistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5D3F8491C2E87F200C749A8 /* HistoryCell.xib */; };
+		B5FDD6B11C2FBDA200AB9903 /* LoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5FDD6B01C2FBDA200AB9903 /* LoadViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +112,8 @@
 		B5D3F8461C2E87BC00C749A8 /* HistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryCell.h; sourceTree = "<group>"; };
 		B5D3F8471C2E87BC00C749A8 /* HistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryCell.m; sourceTree = "<group>"; };
 		B5D3F8491C2E87F200C749A8 /* HistoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryCell.xib; sourceTree = "<group>"; };
+		B5FDD6AF1C2FBDA200AB9903 /* LoadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadViewController.h; sourceTree = "<group>"; };
+		B5FDD6B01C2FBDA200AB9903 /* LoadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadViewController.m; sourceTree = "<group>"; };
 		CD49B49B25C35B1A5D639267 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D74D4AE0A390BDE6D7713197 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -334,6 +337,8 @@
 				B539170D1C2F8BA700E9F0B1 /* GameVC.h */,
 				B539170E1C2F8BA700E9F0B1 /* GameVC.m */,
 				B539170F1C2F8BA700E9F0B1 /* GameVC.xib */,
+				B5FDD6AF1C2FBDA200AB9903 /* LoadViewController.h */,
+				B5FDD6B01C2FBDA200AB9903 /* LoadViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -512,6 +517,7 @@
 				B5D3F83F1C2E844500C749A8 /* MainTabVC.m in Sources */,
 				B5D3F8371C2E844500C749A8 /* SGSheetMenu.m in Sources */,
 				B5D3F83E1C2E844500C749A8 /* Util.m in Sources */,
+				B5FDD6B11C2FBDA200AB9903 /* LoadViewController.m in Sources */,
 				B52CEE541C2F7E98008DE32B /* RaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

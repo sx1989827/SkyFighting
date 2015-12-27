@@ -17,12 +17,6 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    _historyModelArray =[[UserDefaults sharedInstance] historyList];
-    [_mainTable registarCell:@"HistoryCell" StrItem:nil];
-    LazyTableBaseSection *sec = [[LazyTableBaseSection alloc]init];
-    sec.headerHeight = 5;
-    sec.titleHeader =@"";
-    [_mainTable addSection:sec];
     for (int i=0; i<_historyModelArray.count; i++) {
          UserHistory*history = [self.historyModelArray objectAtIndex:i];
         if (history.type==0) {
@@ -61,6 +55,12 @@
     self.title=@"历史";
     [self hideBackButton];
     [self.mainTable setDelegateAndDataSource:self];
+    _historyModelArray =[[UserDefaults sharedInstance] historyList];
+    [_mainTable registarCell:@"HistoryCell" StrItem:nil];
+    LazyTableBaseSection *sec = [[LazyTableBaseSection alloc]init];
+    sec.headerHeight = 5;
+    sec.titleHeader =@"";
+    [_mainTable addSection:sec];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
