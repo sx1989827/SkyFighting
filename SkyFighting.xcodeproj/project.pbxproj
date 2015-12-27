@@ -12,6 +12,11 @@
 		B52CEDE91C2BEE8A008DE32B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B52CEDE81C2BEE8A008DE32B /* AppDelegate.m */; };
 		B52CEDF11C2BEE8A008DE32B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B52CEDF01C2BEE8A008DE32B /* Assets.xcassets */; };
 		B52CEDF41C2BEE8A008DE32B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B52CEDF21C2BEE8A008DE32B /* LaunchScreen.storyboard */; };
+		B52CEE531C2F7E98008DE32B /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = B52CEE4D1C2F7E98008DE32B /* art.scnassets */; };
+		B52CEE541C2F7E98008DE32B /* RaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = B52CEE501C2F7E98008DE32B /* RaderView.m */; };
+		B52CEE591C2F876E008DE32B /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = B52CEE581C2F876E008DE32B /* GameView.m */; };
+		B53917101C2F8BA700E9F0B1 /* GameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B539170E1C2F8BA700E9F0B1 /* GameVC.m */; };
+		B53917111C2F8BA700E9F0B1 /* GameVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B539170F1C2F8BA700E9F0B1 /* GameVC.xib */; };
 		B5D3F8281C2E844500C749A8 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5D3F7F61C2E844500C749A8 /* BaseViewController.m */; };
 		B5D3F8291C2E844500C749A8 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = B5D3F7F81C2E844500C749A8 /* back.png */; };
 		B5D3F82A1C2E844500C749A8 /* HUDLoading1.png in Resources */ = {isa = PBXBuildFile; fileRef = B5D3F7F91C2E844500C749A8 /* HUDLoading1.png */; };
@@ -53,6 +58,14 @@
 		B52CEDF01C2BEE8A008DE32B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B52CEDF31C2BEE8A008DE32B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B52CEDF51C2BEE8A008DE32B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B52CEE4D1C2F7E98008DE32B /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		B52CEE4F1C2F7E98008DE32B /* RaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RaderView.h; sourceTree = "<group>"; };
+		B52CEE501C2F7E98008DE32B /* RaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RaderView.m; sourceTree = "<group>"; };
+		B52CEE571C2F876E008DE32B /* GameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameView.h; sourceTree = "<group>"; };
+		B52CEE581C2F876E008DE32B /* GameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameView.m; sourceTree = "<group>"; };
+		B539170D1C2F8BA700E9F0B1 /* GameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameVC.h; sourceTree = "<group>"; };
+		B539170E1C2F8BA700E9F0B1 /* GameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameVC.m; sourceTree = "<group>"; };
+		B539170F1C2F8BA700E9F0B1 /* GameVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameVC.xib; sourceTree = "<group>"; };
 		B5D3F7F51C2E844500C749A8 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		B5D3F7F61C2E844500C749A8 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		B5D3F7F81C2E844500C749A8 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
@@ -167,9 +180,38 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		B52CEE4C1C2F7E98008DE32B /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				B52CEE561C2F874E008DE32B /* GameView */,
+				B52CEE4D1C2F7E98008DE32B /* art.scnassets */,
+				B52CEE4E1C2F7E98008DE32B /* Radar */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		B52CEE4E1C2F7E98008DE32B /* Radar */ = {
+			isa = PBXGroup;
+			children = (
+				B52CEE4F1C2F7E98008DE32B /* RaderView.h */,
+				B52CEE501C2F7E98008DE32B /* RaderView.m */,
+			);
+			path = Radar;
+			sourceTree = "<group>";
+		};
+		B52CEE561C2F874E008DE32B /* GameView */ = {
+			isa = PBXGroup;
+			children = (
+				B52CEE571C2F876E008DE32B /* GameView.h */,
+				B52CEE581C2F876E008DE32B /* GameView.m */,
+			);
+			path = GameView;
+			sourceTree = "<group>";
+		};
 		B5D3F7F31C2E844500C749A8 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				B52CEE4C1C2F7E98008DE32B /* Game */,
 				B5D3F7F41C2E844500C749A8 /* BaseVc */,
 				B5D3F8001C2E844500C749A8 /* IntroView */,
 				B5D3F8031C2E844500C749A8 /* SGActionView */,
@@ -289,6 +331,9 @@
 				B5D3F8251C2E844500C749A8 /* StartVC.h */,
 				B5D3F8261C2E844500C749A8 /* StartVC.m */,
 				B5D3F8271C2E844500C749A8 /* StartVC.xib */,
+				B539170D1C2F8BA700E9F0B1 /* GameVC.h */,
+				B539170E1C2F8BA700E9F0B1 /* GameVC.m */,
+				B539170F1C2F8BA700E9F0B1 /* GameVC.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -372,6 +417,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5D3F8391C2E844500C749A8 /* AlertLeft.png in Resources */,
+				B52CEE531C2F7E98008DE32B /* art.scnassets in Resources */,
+				B53917111C2F8BA700E9F0B1 /* GameVC.xib in Resources */,
 				B5D3F8411C2E844500C749A8 /* ScoreVC.xib in Resources */,
 				B5D3F8301C2E844500C749A8 /* HUDLoading7.png in Resources */,
 				B5D3F8431C2E844500C749A8 /* StartVC.xib in Resources */,
@@ -452,6 +499,7 @@
 				B5D3F8311C2E844500C749A8 /* IntroView.m in Sources */,
 				B5D3F8351C2E844500C749A8 /* SGBaseMenu.m in Sources */,
 				B5D3F83D1C2E844500C749A8 /* UserDefaults.m in Sources */,
+				B52CEE591C2F876E008DE32B /* GameView.m in Sources */,
 				B5D3F8401C2E844500C749A8 /* ScoreVC.m in Sources */,
 				B5D3F8361C2E844500C749A8 /* SGGridMenu.m in Sources */,
 				B5D3F8281C2E844500C749A8 /* BaseViewController.m in Sources */,
@@ -459,10 +507,12 @@
 				B5D3F83C1C2E844500C749A8 /* TipView.m in Sources */,
 				B5D3F8481C2E87BC00C749A8 /* HistoryCell.m in Sources */,
 				B52CEDE61C2BEE8A008DE32B /* main.m in Sources */,
+				B53917101C2F8BA700E9F0B1 /* GameVC.m in Sources */,
 				B5D3F8341C2E844500C749A8 /* SGAlertMenu.m in Sources */,
 				B5D3F83F1C2E844500C749A8 /* MainTabVC.m in Sources */,
 				B5D3F8371C2E844500C749A8 /* SGSheetMenu.m in Sources */,
 				B5D3F83E1C2E844500C749A8 /* Util.m in Sources */,
+				B52CEE541C2F7E98008DE32B /* RaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
