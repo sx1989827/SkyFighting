@@ -33,12 +33,14 @@
     _secindImageView = [[UIImageView alloc]initWithFrame:self.view.bounds];
     _secindImageView.userInteractionEnabled = YES;
     _secindImageView.tag =101;
-    _secindImageView.backgroundColor = [UIColor blackColor];
+  
+    _secindImageView.image= [UIImage imageNamed:@"secondLoad"];
     [self.view addSubview:_secindImageView];
     _firstImageVeiw = [[UIImageView alloc]initWithFrame:self.view.bounds];
     _firstImageVeiw.userInteractionEnabled = YES;
     _firstImageVeiw.tag =100;
-    _firstImageVeiw.backgroundColor = [UIColor redColor];
+  
+    _firstImageVeiw.image= [UIImage imageNamed:@"firstLoad"];
     [self.view addSubview:_firstImageVeiw];
     //向右划
     UISwipeGestureRecognizer *rightSwipe = [[UISwipeGestureRecognizer alloc] init];
