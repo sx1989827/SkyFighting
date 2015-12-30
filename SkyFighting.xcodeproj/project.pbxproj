@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2261B96736FA70DC0788A989 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3171B4EA987A27A1D92D1D69 /* libPods.a */; };
+		B513570E1C32919B001891F9 /* CheckpointVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B513570C1C32919B001891F9 /* CheckpointVC.m */; };
+		B513570F1C32919B001891F9 /* CheckpointVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B513570D1C32919B001891F9 /* CheckpointVC.xib */; };
 		B52CEDE61C2BEE8A008DE32B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B52CEDE51C2BEE8A008DE32B /* main.m */; };
 		B52CEDE91C2BEE8A008DE32B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B52CEDE81C2BEE8A008DE32B /* AppDelegate.m */; };
 		B52CEDF11C2BEE8A008DE32B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B52CEDF01C2BEE8A008DE32B /* Assets.xcassets */; };
@@ -52,6 +54,9 @@
 
 /* Begin PBXFileReference section */
 		3171B4EA987A27A1D92D1D69 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B513570B1C32919B001891F9 /* CheckpointVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckpointVC.h; sourceTree = "<group>"; };
+		B513570C1C32919B001891F9 /* CheckpointVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckpointVC.m; sourceTree = "<group>"; };
+		B513570D1C32919B001891F9 /* CheckpointVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckpointVC.xib; sourceTree = "<group>"; };
 		B52CEDE11C2BEE8A008DE32B /* SkyFighting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkyFighting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B52CEDE51C2BEE8A008DE32B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B52CEDE71C2BEE8A008DE32B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -339,6 +344,9 @@
 				B539170F1C2F8BA700E9F0B1 /* GameVC.xib */,
 				B5FDD6AF1C2FBDA200AB9903 /* LoadViewController.h */,
 				B5FDD6B01C2FBDA200AB9903 /* LoadViewController.m */,
+				B513570B1C32919B001891F9 /* CheckpointVC.h */,
+				B513570C1C32919B001891F9 /* CheckpointVC.m */,
+				B513570D1C32919B001891F9 /* CheckpointVC.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -423,6 +431,7 @@
 			files = (
 				B5D3F8391C2E844500C749A8 /* AlertLeft.png in Resources */,
 				B52CEE531C2F7E98008DE32B /* art.scnassets in Resources */,
+				B513570F1C32919B001891F9 /* CheckpointVC.xib in Resources */,
 				B53917111C2F8BA700E9F0B1 /* GameVC.xib in Resources */,
 				B5D3F8411C2E844500C749A8 /* ScoreVC.xib in Resources */,
 				B5D3F8301C2E844500C749A8 /* HUDLoading7.png in Resources */,
@@ -507,6 +516,7 @@
 				B52CEE591C2F876E008DE32B /* GameView.m in Sources */,
 				B5D3F8401C2E844500C749A8 /* ScoreVC.m in Sources */,
 				B5D3F8361C2E844500C749A8 /* SGGridMenu.m in Sources */,
+				B513570E1C32919B001891F9 /* CheckpointVC.m in Sources */,
 				B5D3F8281C2E844500C749A8 /* BaseViewController.m in Sources */,
 				B5D3F8421C2E844500C749A8 /* StartVC.m in Sources */,
 				B5D3F83C1C2E844500C749A8 /* TipView.m in Sources */,

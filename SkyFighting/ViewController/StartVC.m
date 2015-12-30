@@ -35,6 +35,8 @@
             if(index==0)
             {
                 
+                
+                
             }
             else if(index==1)
             {
@@ -44,7 +46,7 @@
     }
     else
     {
-        [self pushViewController:@"GameVC" Param:nil];
+        [self pushViewController:@"CheckpointVC" Param:nil];
     }
 }
 

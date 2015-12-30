@@ -121,8 +121,13 @@
         {
             [[UserDefaults sharedInstance] incLoginCount];
             UITabBarController *tab=[[MainTabVC alloc] init];
+            tab.view.alpha=0;
             UIWindow *window = [[UIApplication sharedApplication]keyWindow];
-            window.rootViewController=tab;
+            [UIView animateWithDuration:0.5 animations:^{
+                window.rootViewController=tab;
+                tab.view.alpha=1;
+            } completion:^(BOOL finished) {
+            }];
             break;
         }
         default:

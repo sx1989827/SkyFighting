@@ -20,6 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     _window=[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    [[UINavigationBar appearance] setBarTintColor:COL(10,140,225,1.0)];
     if (![[UserDefaults sharedInstance]isFirstLogin]) {
         LoadViewController *loadView = [[LoadViewController alloc]init];
         self.window.rootViewController = loadView;
