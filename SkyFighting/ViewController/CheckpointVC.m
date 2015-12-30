@@ -10,6 +10,7 @@
 #import <LazyTableBaseSection.h>
 #import "DetailCheckpointCell.h"
 #import "Util.h"
+#import "UserDefaults.h"
 @interface CheckpointVC ()<LazyTableViewDelegate>
 
 @end
@@ -32,12 +33,22 @@
 {
     [super viewWillAppear:animated];
     
+    if (self.isAgain) {
+        
+        
+    }
+    
+   NSInteger level= [[UserDefaults sharedInstance] level];
+    
+    
+    LevelInfo*levelInfo = [[UserDefaults sharedInstance]levelInfo:level];
+    
     __weak typeof(self)weakSelf = self;
     [_mainTableView addStaticCell:40 CellBlock:^(id cell) {
         DetailCheckpointCell *cl=cell;
         cl.selectionStyle =UITableViewCellSelectionStyleNone;
         cl.startButton.hidden = YES;
-        cl.detailLabel.text = @"关数:4";
+        cl.detailLabel.text = [NSString stringWithFormat:@"当前关卡:%d",level];
     } ClickBlock:^(id cell) {
         
     }];
@@ -45,7 +56,7 @@
         DetailCheckpointCell *cl=cell;
         cl.selectionStyle =UITableViewCellSelectionStyleNone;
          cl.startButton.hidden = YES;
-        cl.detailLabel.text = @"敌机血量:13";
+        cl.detailLabel.text = [NSString stringWithFormat:@"敌机血量:%d",levelInfo.bloodEnemy];
     } ClickBlock:^(id cell) {
         
     }];
@@ -53,7 +64,7 @@
         DetailCheckpointCell *cl=cell;
         cl.selectionStyle =UITableViewCellSelectionStyleNone;
          cl.startButton.hidden = YES;
-        cl.detailLabel.text = @"敌机数量:13";
+         cl.detailLabel.text = [NSString stringWithFormat:@"敌机数量:%d",levelInfo.count];
     } ClickBlock:^(id cell) {
         
     }];
@@ -61,7 +72,7 @@
         DetailCheckpointCell *cl=cell;
         cl.selectionStyle =UITableViewCellSelectionStyleNone;
          cl.startButton.hidden = YES;
-        cl.detailLabel.text = @"玩家血量:200";
+        cl.detailLabel.text = [NSString stringWithFormat:@"玩家血量:%d",levelInfo.bloodPlayer];
     } ClickBlock:^(id cell) {
         
     }];
@@ -69,7 +80,15 @@
         DetailCheckpointCell *cl=cell;
         cl.selectionStyle =UITableViewCellSelectionStyleNone;
          cl.startButton.hidden = YES;
-        cl.detailLabel.text = @"敌机子弹时间间隔:1s";
+        cl.detailLabel.text = [NSString stringWithFormat:@"敌机子弹时间间隔:%d",levelInfo.fireGap];
+    } ClickBlock:^(id cell) {
+        
+    }];
+    [_mainTableView addStaticCell:40 CellBlock:^(id cell) {
+        DetailCheckpointCell *cl=cell;
+        cl.selectionStyle =UITableViewCellSelectionStyleNone;
+        cl.startButton.hidden = YES;
+        cl.detailLabel.text = [NSString stringWithFormat:@"敌机出现时间间隔:%d",levelInfo.displayGap];
     } ClickBlock:^(id cell) {
         
     }];
@@ -77,7 +96,7 @@
         DetailCheckpointCell *cl=cell;
         cl.selectionStyle =UITableViewCellSelectionStyleNone;
          cl.startButton.hidden = YES;
-        cl.detailLabel.text = @"子弹数量:13";
+        cl.detailLabel.text = [NSString stringWithFormat:@"子弹数量:%d",levelInfo.bulletCount];
     } ClickBlock:^(id cell) {
         
     }];
@@ -85,7 +104,7 @@
         DetailCheckpointCell *cl=cell;
         cl.selectionStyle =UITableViewCellSelectionStyleNone;
          cl.startButton.hidden = YES;
-        cl.detailLabel.text = @"激光数量:13";
+        cl.detailLabel.text = [NSString stringWithFormat:@"圣光数量:%d",levelInfo.laserCount];
     } ClickBlock:^(id cell) {
         
     }];
@@ -93,7 +112,7 @@
         DetailCheckpointCell *cl=cell;
         cl.selectionStyle =UITableViewCellSelectionStyleNone;
          cl.startButton.hidden = YES;
-        cl.detailLabel.text = @"导弹数量:13";
+         cl.detailLabel.text = [NSString stringWithFormat:@"导弹数量:%d",levelInfo.bombCount];
     } ClickBlock:^(id cell) {
         
     }];
@@ -101,15 +120,7 @@
         DetailCheckpointCell *cl=cell;
         cl.selectionStyle =UITableViewCellSelectionStyleNone;
          cl.startButton.hidden = YES;
-        cl.detailLabel.text = @"防护罩数量:2";
-    } ClickBlock:^(id cell) {
-        
-    }];
-    [_mainTableView addStaticCell:40 CellBlock:^(id cell) {
-        DetailCheckpointCell *cl=cell;
-        cl.selectionStyle =UITableViewCellSelectionStyleNone;
-         cl.startButton.hidden = YES;
-        cl.detailLabel.text = @"防护罩数量:2";
+      cl.detailLabel.text = [NSString stringWithFormat:@"防护罩数量:%d",levelInfo.protectCount];
     } ClickBlock:^(id cell) {
         
     }];
