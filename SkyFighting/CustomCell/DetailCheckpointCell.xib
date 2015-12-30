@@ -21,30 +21,16 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tfi-kG-JEh">
-                        <rect key="frame" x="31" y="7" width="266" height="30"/>
-                        <color key="backgroundColor" red="0.29117599630000002" green="0.56903862900000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="30" id="G4b-VU-oS0"/>
-                            <constraint firstAttribute="width" constant="266" id="t0X-oc-Zce"/>
-                        </constraints>
-                        <state key="normal" title="开始">
-                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
-                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="9LK-YD-2oo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="AKj-gI-kZK"/>
                     <constraint firstItem="9LK-YD-2oo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="9" id="MPX-SE-SmW"/>
-                    <constraint firstItem="tfi-kG-JEh" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Mmd-a3-IqE"/>
                     <constraint firstItem="9LK-YD-2oo" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="N5K-kH-Ho6"/>
                     <constraint firstAttribute="bottomMargin" secondItem="9LK-YD-2oo" secondAttribute="bottom" constant="3.5" id="Pma-kg-mRf"/>
-                    <constraint firstItem="tfi-kG-JEh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-1" id="quf-So-W5G"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="detailLabel" destination="9LK-YD-2oo" id="PBr-1x-13A"/>
-                <outlet property="startButton" destination="tfi-kG-JEh" id="9hy-Dg-tXC"/>
             </connections>
         </tableViewCell>
     </objects>

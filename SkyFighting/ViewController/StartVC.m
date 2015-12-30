@@ -29,16 +29,24 @@
 
 - (IBAction)onLevel:(id)sender
 {
-            [SGActionView showSheetWithTitle:@"请选择" itemTitles:@[@"继续闯关",@"从新开始"] selectedIndex:-1 selectedHandle:^(NSInteger index) {
-                if(index==0)
-                {
-                    [self pushViewController:@"CheckpointVC" Param:nil];
-                }
-                else if(index==1)
-                {
-                    [self pushViewController:@"CheckpointVC" Param:@{@"isAgain":@YES}];
-                }
-            }];
+    if ([[UserDefaults sharedInstance] level]>0) {
+        [SGActionView showSheetWithTitle:@"请选择" itemTitles:@[@"继续闯关",@"从新开始"] selectedIndex:-1 selectedHandle:^(NSInteger index) {
+            if(index==0)
+            {
+                [self pushViewController:@"CheckpointVC" Param:nil];
+            }
+            else if(index==1)
+            {
+                [[UserDefaults sharedInstance] resetLevel];
+                [self pushViewController:@"CheckpointVC" Param:nil];
+            }
+        }];
+    }
+    else
+    {
+       [self pushViewController:@"CheckpointVC" Param:nil];
+    }
+    
 }
 - (IBAction)onSurvival:(id)sender
 {

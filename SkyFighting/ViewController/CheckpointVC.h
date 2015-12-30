@@ -10,6 +10,6 @@
 #import "BaseViewController.h"
 #import <LazyTableView.h>
 @interface CheckpointVC : BaseViewController
+@property (strong, nonatomic) IBOutlet UIButton *startButton;
 @property (strong, nonatomic) IBOutlet LazyTableView *mainTableView;
-@property (assign,nonatomic)BOOL   isAgain;
 @end

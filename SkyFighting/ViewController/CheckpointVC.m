@@ -11,8 +11,11 @@
 #import "DetailCheckpointCell.h"
 #import "Util.h"
 #import "UserDefaults.h"
+#import "TipView.h"
 @interface CheckpointVC ()<LazyTableViewDelegate>
-
+{
+    NSInteger level;
+}
 @end
 
 @implementation CheckpointVC
@@ -28,122 +31,102 @@
     sec.headerHeight = 10;
     sec.titleHeader = @"";
     [_mainTableView addSection:sec];
+    self.startButton.layer.cornerRadius = 15;
+    self.startButton.layer.masksToBounds = YES;
 }
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    if (self.isAgain) {
-        
-        
+    level= [[UserDefaults sharedInstance] level];
+    if (0<=level&&level<8) {
+        level++;
     }
-    
-   NSInteger level= [[UserDefaults sharedInstance] level];
-    
-    
+    else
+    {
+        [TipView showWithTitle:@"恭喜你已通关！" Tip:@"提示" Block:^{
+        }];
+        return;
+    }
     LevelInfo*levelInfo = [[UserDefaults sharedInstance]levelInfo:level];
-    
-    __weak typeof(self)weakSelf = self;
+    __block typeof(NSInteger)integer = level;
     [_mainTableView addStaticCell:40 CellBlock:^(id cell) {
         DetailCheckpointCell *cl=cell;
         cl.selectionStyle =UITableViewCellSelectionStyleNone;
-        cl.startButton.hidden = YES;
-        cl.detailLabel.text = [NSString stringWithFormat:@"当前关卡:%d",level];
+        cl.detailLabel.text = [NSString stringWithFormat:@"当前关卡:%ld",(long)integer];
+    } ClickBlock:^(id cell) {
+    }];
+    [_mainTableView addStaticCell:40 CellBlock:^(id cell) {
+        DetailCheckpointCell *cl=cell;
+        cl.selectionStyle =UITableViewCellSelectionStyleNone;
+        cl.detailLabel.text = [NSString stringWithFormat:@"敌机血量:%ld",(long)levelInfo.bloodEnemy];
     } ClickBlock:^(id cell) {
         
     }];
     [_mainTableView addStaticCell:40 CellBlock:^(id cell) {
         DetailCheckpointCell *cl=cell;
         cl.selectionStyle =UITableViewCellSelectionStyleNone;
-         cl.startButton.hidden = YES;
-        cl.detailLabel.text = [NSString stringWithFormat:@"敌机血量:%d",levelInfo.bloodEnemy];
+         cl.detailLabel.text = [NSString stringWithFormat:@"敌机数量:%ld",(long)levelInfo.count];
     } ClickBlock:^(id cell) {
         
     }];
     [_mainTableView addStaticCell:40 CellBlock:^(id cell) {
         DetailCheckpointCell *cl=cell;
         cl.selectionStyle =UITableViewCellSelectionStyleNone;
-         cl.startButton.hidden = YES;
-         cl.detailLabel.text = [NSString stringWithFormat:@"敌机数量:%d",levelInfo.count];
+        cl.detailLabel.text = [NSString stringWithFormat:@"玩家血量:%ld",(long)levelInfo.bloodPlayer];
     } ClickBlock:^(id cell) {
         
     }];
     [_mainTableView addStaticCell:40 CellBlock:^(id cell) {
         DetailCheckpointCell *cl=cell;
         cl.selectionStyle =UITableViewCellSelectionStyleNone;
-         cl.startButton.hidden = YES;
-        cl.detailLabel.text = [NSString stringWithFormat:@"玩家血量:%d",levelInfo.bloodPlayer];
+        cl.detailLabel.text = [NSString stringWithFormat:@"敌机子弹时间间隔:%lds",(long)levelInfo.fireGap];
     } ClickBlock:^(id cell) {
         
     }];
     [_mainTableView addStaticCell:40 CellBlock:^(id cell) {
         DetailCheckpointCell *cl=cell;
         cl.selectionStyle =UITableViewCellSelectionStyleNone;
-         cl.startButton.hidden = YES;
-        cl.detailLabel.text = [NSString stringWithFormat:@"敌机子弹时间间隔:%d",levelInfo.fireGap];
+        cl.detailLabel.text = [NSString stringWithFormat:@"敌机出现时间间隔:%lds",(long)levelInfo.displayGap];
     } ClickBlock:^(id cell) {
         
     }];
     [_mainTableView addStaticCell:40 CellBlock:^(id cell) {
         DetailCheckpointCell *cl=cell;
         cl.selectionStyle =UITableViewCellSelectionStyleNone;
-        cl.startButton.hidden = YES;
-        cl.detailLabel.text = [NSString stringWithFormat:@"敌机出现时间间隔:%d",levelInfo.displayGap];
+        cl.detailLabel.text = [NSString stringWithFormat:@"子弹数量:%ld",(long)levelInfo.bulletCount];
     } ClickBlock:^(id cell) {
         
     }];
     [_mainTableView addStaticCell:40 CellBlock:^(id cell) {
         DetailCheckpointCell *cl=cell;
         cl.selectionStyle =UITableViewCellSelectionStyleNone;
-         cl.startButton.hidden = YES;
-        cl.detailLabel.text = [NSString stringWithFormat:@"子弹数量:%d",levelInfo.bulletCount];
+        cl.detailLabel.text = [NSString stringWithFormat:@"圣光数量:%ld",(long)levelInfo.laserCount];
     } ClickBlock:^(id cell) {
         
     }];
     [_mainTableView addStaticCell:40 CellBlock:^(id cell) {
         DetailCheckpointCell *cl=cell;
         cl.selectionStyle =UITableViewCellSelectionStyleNone;
-         cl.startButton.hidden = YES;
-        cl.detailLabel.text = [NSString stringWithFormat:@"圣光数量:%d",levelInfo.laserCount];
+         cl.detailLabel.text = [NSString stringWithFormat:@"导弹数量:%ld",(long)levelInfo.bombCount];
     } ClickBlock:^(id cell) {
         
     }];
     [_mainTableView addStaticCell:40 CellBlock:^(id cell) {
         DetailCheckpointCell *cl=cell;
         cl.selectionStyle =UITableViewCellSelectionStyleNone;
-         cl.startButton.hidden = YES;
-         cl.detailLabel.text = [NSString stringWithFormat:@"导弹数量:%d",levelInfo.bombCount];
-    } ClickBlock:^(id cell) {
-        
-    }];
-    [_mainTableView addStaticCell:40 CellBlock:^(id cell) {
-        DetailCheckpointCell *cl=cell;
-        cl.selectionStyle =UITableViewCellSelectionStyleNone;
-         cl.startButton.hidden = YES;
-      cl.detailLabel.text = [NSString stringWithFormat:@"防护罩数量:%d",levelInfo.protectCount];
-    } ClickBlock:^(id cell) {
-        
-    }];
-    [_mainTableView addStaticCell:40 CellBlock:^(id cell) {
-        DetailCheckpointCell *cl=cell;
-        cl.selectionStyle =UITableViewCellSelectionStyleNone;
-        [cl.startButton addTarget:weakSelf action:@selector(start) forControlEvents:UIControlEventTouchUpInside];
-        cl.startButton.layer.cornerRadius = 10;
-        cl.startButton.layer.masksToBounds  =YES;
-        cl.detailLabel.hidden = YES;
+      cl.detailLabel.text = [NSString stringWithFormat:@"防护罩数量:%ld",(long)levelInfo.protectCount];
     } ClickBlock:^(id cell) {
         
     }];
     [_mainTableView reloadStatic];
-
-}
-- (IBAction)start {
-    [self pushViewController:@"GameVC" Param:nil];
-    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)start:(id)sender {
+    [self pushViewController:@"GameVC" Param:@{@"level":[NSNumber numberWithInteger:level],
+                                               @"type":@0}];
 }
 
 /*

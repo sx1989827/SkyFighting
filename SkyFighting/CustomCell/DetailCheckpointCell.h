@@ -11,7 +11,4 @@
 @interface DetailCheckpointCell : LazyTableCell
 @property (strong, nonatomic) IBOutlet UILabel *detailLabel;
 
-@property (strong, nonatomic) IBOutlet UIButton *startButton;
-
-
 @end
