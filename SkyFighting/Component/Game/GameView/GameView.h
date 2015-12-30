@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 @import SceneKit;
 @protocol GameViewDelegate <NSObject>
--(void)GameViewFinish:(BOOL)bSuccess;
+-(void)GameViewFinish:(BOOL)bSuccess KillCount:(NSInteger)count;
 @end
 @interface GameView : UIView
 -(void)start;

@@ -32,6 +32,7 @@
 -(void)incLoginCount;
 -(NSInteger)level;
 -(void)addLevel;
+-(void)resetLevel;
 -(NSArray<UserHistory*>*)historyList;
 -(void)addHistory:(UserHistory*)model;
 -(LevelInfo*)levelInfo:(NSInteger)level;

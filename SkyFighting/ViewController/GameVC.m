@@ -12,6 +12,9 @@
 @interface GameVC ()<GameViewDelegate>
 {
     GameView *viewGame;
+    NSDate *date;
+    NSInteger level;
+    NSInteger type;
 }
 @end
 
@@ -19,6 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    date=[NSDate date];
     self.bHud=NO;
     viewGame=(GameView*)self.view;
     [viewGame setup:2 PlayerBlood:1000 EnemyBlood:200 DispalyGap:10 FireGap:1 BulletCount:100 BombCount:10 LaserCount:100 ProtectCount:2];
@@ -49,18 +53,27 @@
     return YES;
 }
 
--(void)GameViewFinish:(BOOL)bSuccess
+-(void)GameViewFinish:(BOOL)bSuccess KillCount:(NSInteger)count
 {
+    UserHistory *obj=[[UserHistory alloc] init];
+    obj.date=[date stringValue];
+    obj.level=level;
+    obj.bSuccess=bSuccess;
+    obj.killCount=count;
+    obj.useTime=[date timeIntervalSinceNow];
+    obj.type=type;
+    [[UserDefaults sharedInstance] addHistory:obj];
     if(bSuccess)
     {
         [TipView showWithTitle:@"闯关成功" Tip:@"恭喜你，非常棒！" Block:^{
-            
+            [[UserDefaults sharedInstance] addLevel];
+            [self.navigationController popViewControllerAnimated:YES];
         }];
     }
     else
     {
         [TipView showWithTitle:@"闯关失败" Tip:@"再多磨练磨练吧！" Block:^{
-            
+            [self.navigationController popViewControllerAnimated:YES];
         }];
     }
 }

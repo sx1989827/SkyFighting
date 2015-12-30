@@ -121,7 +121,6 @@
         }
         case 3:
         {
-            [[UserDefaults sharedInstance] incLoginCount];
             UITabBarController *tab=[[MainTabVC alloc] init];
             UIWindow *window = [[UIApplication sharedApplication]keyWindow];
             window.rootViewController = tab;
