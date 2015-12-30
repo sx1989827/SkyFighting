@@ -54,6 +54,7 @@ typedef enum : NSInteger {
     RaderView *viewRader;
     SCNView *viewScene;
     NSInteger enemyCount;
+    NSInteger enemyOriginCount;
     float gapDisplay;
     float gapFire;
     NSInteger bloodPlayer;
@@ -680,18 +681,18 @@ typedef enum : NSInteger {
 {
     if(enemyCount==0 && arrEnemy.count==0)
     {
-        if(_delegate && [_delegate respondsToSelector:@selector(GameViewFinish:)])
+        if(_delegate && [_delegate respondsToSelector:@selector(GameViewFinish:KillCount:)])
         {
-            [_delegate GameViewFinish:YES];
+            [_delegate GameViewFinish:YES KillCount:enemyOriginCount-enemyCount];
         }
         [self stop];
         return;
     }
     else if(bloodPlayer<=0)
     {
-        if(_delegate && [_delegate respondsToSelector:@selector(GameViewFinish:)])
+        if(_delegate && [_delegate respondsToSelector:@selector(GameViewFinish:KillCount:)])
         {
-            [_delegate GameViewFinish:NO];
+            [_delegate GameViewFinish:NO KillCount:enemyOriginCount-enemyCount];
         }
         [self stop];
         return;
@@ -801,6 +802,7 @@ typedef enum : NSInteger {
 -(void)setup:(NSInteger)count PlayerBlood:(NSInteger)playerBlood EnemyBlood:(NSInteger)enemyBlood DispalyGap:(float)displayGap FireGap:(float)fireGap BulletCount:(NSInteger)bullet BombCount:(NSInteger)bomb LaserCount:(NSInteger)laser ProtectCount:(NSInteger)protect
 {
     enemyCount=count;
+    enemyOriginCount=count;
     gapDisplay=displayGap;
     gapFire=fireGap;
     bloodPlayer=playerBlood;

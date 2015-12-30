@@ -148,6 +148,13 @@ static NSMutableArray<LevelInfo*> *arrLevel;
 {
     return arrLevel[level];
 }
+
+-(void)resetLevel
+{
+    NSUserDefaults *user=[NSUserDefaults standardUserDefaults];
+    [user setInteger:0 forKey:@"level"];
+    [user synchronize];
+}
 @end
 
 
