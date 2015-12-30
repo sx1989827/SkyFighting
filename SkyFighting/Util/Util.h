@@ -73,5 +73,7 @@
 - (CGFloat)fontSizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size;
 @end
 
-
+@interface UIImage (Additions)
+- (UIImage *)imageByApplyingAlpha:(CGFloat) alpha;
+@end
 

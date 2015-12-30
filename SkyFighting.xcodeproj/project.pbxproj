@@ -19,6 +19,16 @@
 		B52CEE591C2F876E008DE32B /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = B52CEE581C2F876E008DE32B /* GameView.m */; };
 		B53917101C2F8BA700E9F0B1 /* GameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B539170E1C2F8BA700E9F0B1 /* GameVC.m */; };
 		B53917111C2F8BA700E9F0B1 /* GameVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B539170F1C2F8BA700E9F0B1 /* GameVC.xib */; };
+		B53917171C2FD29A00E9F0B1 /* EnemyNode.m in Sources */ = {isa = PBXBuildFile; fileRef = B53917161C2FD29A00E9F0B1 /* EnemyNode.m */; };
+		B54FA2B01C3275BF003AB331 /* FirePartical.scnp in Resources */ = {isa = PBXBuildFile; fileRef = B54FA2AE1C3275BF003AB331 /* FirePartical.scnp */; };
+		B54FA2B11C3275BF003AB331 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = B54FA2AF1C3275BF003AB331 /* spark.png */; };
+		B56E0E6A1C336A68004E6B79 /* plane.wav in Resources */ = {isa = PBXBuildFile; fileRef = B56E0E691C336A68004E6B79 /* plane.wav */; };
+		B56E0E6C1C3376CD004E6B79 /* blast.wav in Resources */ = {isa = PBXBuildFile; fileRef = B56E0E6B1C3376CD004E6B79 /* blast.wav */; };
+		B56E0E6E1C3378F7004E6B79 /* bullet.wav in Resources */ = {isa = PBXBuildFile; fileRef = B56E0E6D1C3378F7004E6B79 /* bullet.wav */; };
+		B56E0E701C3379DA004E6B79 /* bomb.wav in Resources */ = {isa = PBXBuildFile; fileRef = B56E0E6F1C3379DA004E6B79 /* bomb.wav */; };
+		B56E0E721C337A47004E6B79 /* laser.wav in Resources */ = {isa = PBXBuildFile; fileRef = B56E0E711C337A47004E6B79 /* laser.wav */; };
+		B56E0E741C337A84004E6B79 /* protect.wav in Resources */ = {isa = PBXBuildFile; fileRef = B56E0E731C337A84004E6B79 /* protect.wav */; };
+		B56E0E761C337ADA004E6B79 /* blood.wav in Resources */ = {isa = PBXBuildFile; fileRef = B56E0E751C337ADA004E6B79 /* blood.wav */; };
 		B5D3F8281C2E844500C749A8 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5D3F7F61C2E844500C749A8 /* BaseViewController.m */; };
 		B5D3F8291C2E844500C749A8 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = B5D3F7F81C2E844500C749A8 /* back.png */; };
 		B5D3F82A1C2E844500C749A8 /* HUDLoading1.png in Resources */ = {isa = PBXBuildFile; fileRef = B5D3F7F91C2E844500C749A8 /* HUDLoading1.png */; };
@@ -72,6 +82,17 @@
 		B539170D1C2F8BA700E9F0B1 /* GameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameVC.h; sourceTree = "<group>"; };
 		B539170E1C2F8BA700E9F0B1 /* GameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameVC.m; sourceTree = "<group>"; };
 		B539170F1C2F8BA700E9F0B1 /* GameVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameVC.xib; sourceTree = "<group>"; };
+		B53917151C2FD29A00E9F0B1 /* EnemyNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnemyNode.h; sourceTree = "<group>"; };
+		B53917161C2FD29A00E9F0B1 /* EnemyNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnemyNode.m; sourceTree = "<group>"; };
+		B54FA2AE1C3275BF003AB331 /* FirePartical.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = FirePartical.scnp; sourceTree = "<group>"; };
+		B54FA2AF1C3275BF003AB331 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		B56E0E691C336A68004E6B79 /* plane.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = plane.wav; sourceTree = "<group>"; };
+		B56E0E6B1C3376CD004E6B79 /* blast.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = blast.wav; sourceTree = "<group>"; };
+		B56E0E6D1C3378F7004E6B79 /* bullet.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bullet.wav; sourceTree = "<group>"; };
+		B56E0E6F1C3379DA004E6B79 /* bomb.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bomb.wav; sourceTree = "<group>"; };
+		B56E0E711C337A47004E6B79 /* laser.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = laser.wav; sourceTree = "<group>"; };
+		B56E0E731C337A84004E6B79 /* protect.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = protect.wav; sourceTree = "<group>"; };
+		B56E0E751C337ADA004E6B79 /* blood.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = blood.wav; sourceTree = "<group>"; };
 		B5D3F7F51C2E844500C749A8 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		B5D3F7F61C2E844500C749A8 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		B5D3F7F81C2E844500C749A8 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
@@ -210,10 +231,37 @@
 		B52CEE561C2F874E008DE32B /* GameView */ = {
 			isa = PBXGroup;
 			children = (
+				B56E0E631C3365AC004E6B79 /* Sound */,
+				B54FA2AD1C327589003AB331 /* Partical */,
 				B52CEE571C2F876E008DE32B /* GameView.h */,
 				B52CEE581C2F876E008DE32B /* GameView.m */,
+				B53917151C2FD29A00E9F0B1 /* EnemyNode.h */,
+				B53917161C2FD29A00E9F0B1 /* EnemyNode.m */,
 			);
 			path = GameView;
+			sourceTree = "<group>";
+		};
+		B54FA2AD1C327589003AB331 /* Partical */ = {
+			isa = PBXGroup;
+			children = (
+				B54FA2AE1C3275BF003AB331 /* FirePartical.scnp */,
+				B54FA2AF1C3275BF003AB331 /* spark.png */,
+			);
+			path = Partical;
+			sourceTree = "<group>";
+		};
+		B56E0E631C3365AC004E6B79 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				B56E0E751C337ADA004E6B79 /* blood.wav */,
+				B56E0E731C337A84004E6B79 /* protect.wav */,
+				B56E0E711C337A47004E6B79 /* laser.wav */,
+				B56E0E6F1C3379DA004E6B79 /* bomb.wav */,
+				B56E0E6D1C3378F7004E6B79 /* bullet.wav */,
+				B56E0E6B1C3376CD004E6B79 /* blast.wav */,
+				B56E0E691C336A68004E6B79 /* plane.wav */,
+			);
+			path = Sound;
 			sourceTree = "<group>";
 		};
 		B5D3F7F31C2E844500C749A8 /* Component */ = {
@@ -429,25 +477,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B56E0E701C3379DA004E6B79 /* bomb.wav in Resources */,
 				B5D3F8391C2E844500C749A8 /* AlertLeft.png in Resources */,
 				B52CEE531C2F7E98008DE32B /* art.scnassets in Resources */,
 				B513570F1C32919B001891F9 /* CheckpointVC.xib in Resources */,
 				B53917111C2F8BA700E9F0B1 /* GameVC.xib in Resources */,
 				B5D3F8411C2E844500C749A8 /* ScoreVC.xib in Resources */,
+				B56E0E741C337A84004E6B79 /* protect.wav in Resources */,
 				B5D3F8301C2E844500C749A8 /* HUDLoading7.png in Resources */,
+				B56E0E721C337A47004E6B79 /* laser.wav in Resources */,
+				B56E0E6A1C336A68004E6B79 /* plane.wav in Resources */,
 				B5D3F8431C2E844500C749A8 /* StartVC.xib in Resources */,
 				B5D3F8321C2E844500C749A8 /* cellcheck.png in Resources */,
 				B5D3F82B1C2E844500C749A8 /* HUDLoading2.png in Resources */,
 				B52CEDF41C2BEE8A008DE32B /* LaunchScreen.storyboard in Resources */,
 				B5D3F83A1C2E844500C749A8 /* AlertRight.png in Resources */,
+				B54FA2B11C3275BF003AB331 /* spark.png in Resources */,
 				B5D3F8381C2E844500C749A8 /* AlertInfo.png in Resources */,
 				B5D3F82F1C2E844500C749A8 /* HUDLoading6.png in Resources */,
+				B56E0E6E1C3378F7004E6B79 /* bullet.wav in Resources */,
 				B5D3F84A1C2E87F200C749A8 /* HistoryCell.xib in Resources */,
 				B5D3F82C1C2E844500C749A8 /* HUDLoading3.png in Resources */,
+				B54FA2B01C3275BF003AB331 /* FirePartical.scnp in Resources */,
 				B5D3F82D1C2E844500C749A8 /* HUDLoading4.png in Resources */,
 				B52CEDF11C2BEE8A008DE32B /* Assets.xcassets in Resources */,
 				B5D3F82A1C2E844500C749A8 /* HUDLoading1.png in Resources */,
 				B5D3F83B1C2E844500C749A8 /* AlertStatus.png in Resources */,
+				B56E0E6C1C3376CD004E6B79 /* blast.wav in Resources */,
+				B56E0E761C337ADA004E6B79 /* blood.wav in Resources */,
 				B5D3F82E1C2E844500C749A8 /* HUDLoading5.png in Resources */,
 				B5D3F8291C2E844500C749A8 /* back.png in Resources */,
 			);
@@ -525,6 +582,7 @@
 				B53917101C2F8BA700E9F0B1 /* GameVC.m in Sources */,
 				B5D3F8341C2E844500C749A8 /* SGAlertMenu.m in Sources */,
 				B5D3F83F1C2E844500C749A8 /* MainTabVC.m in Sources */,
+				B53917171C2FD29A00E9F0B1 /* EnemyNode.m in Sources */,
 				B5D3F8371C2E844500C749A8 /* SGSheetMenu.m in Sources */,
 				B5D3F83E1C2E844500C749A8 /* Util.m in Sources */,
 				B5FDD6B11C2FBDA200AB9903 /* LoadViewController.m in Sources */,
