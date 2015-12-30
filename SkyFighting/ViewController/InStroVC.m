@@ -6,18 +6,19 @@
 //  Copyright © 2015年 孙昕. All rights reserved.
 //
 
-#import "LoadViewController.h"
+#import "InStroVC.h"
 #import "UserDefaults.h"
 #import "MainTabVC.h"
 #import "Util.h"
-@interface LoadViewController ()
+
+@interface InStroVC ()
 @property(strong,nonatomic)UIImageView*firstImageVeiw;
 @property(strong,nonatomic)UIImageView*secindImageView;
 @property(strong,nonatomic)UIImageView*thirdImageView;
 @property(strong,nonatomic)UIImageView*fourImageView;
 @property(assign,nonatomic)NSInteger count;//记录滑动的次数
 @end
-@implementation LoadViewController
+@implementation InStroVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];

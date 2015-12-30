@@ -15,6 +15,18 @@
 @property (assign,nonatomic) NSInteger useTime;
 @property (assign,nonatomic) NSInteger type;
 @end
+@interface LevelInfo : NSObject
+@property (assign,nonatomic) NSInteger count;
+@property (assign,nonatomic) NSInteger bloodPlayer;
+@property (assign,nonatomic) NSInteger bloodEnemy;
+@property (assign,nonatomic) NSInteger displayGap;
+@property (assign,nonatomic) NSInteger fireGap;
+@property (assign,nonatomic) NSInteger bulletCount;
+@property (assign,nonatomic) NSInteger bombCount;
+@property (assign,nonatomic) NSInteger laserCount;
+@property (assign,nonatomic) NSInteger protectCount;
++(instancetype)info:(NSInteger)count BloodPlayer:(NSInteger)bloodPlayer BloodEnemy:(NSInteger)bloodEnemy DisplayGap:(NSInteger)displayGap FireGap:(NSInteger)fireGap BulletCount:(NSInteger)bulletCount BombCount:(NSInteger)bombCount LaserCount:(NSInteger)laserCount ProtectCount:(NSInteger)protectCount;
+@end
 @interface UserDefaults : NSObject
 -(BOOL)isFirstLogin;
 -(void)incLoginCount;
@@ -22,6 +34,7 @@
 -(void)addLevel;
 -(NSArray<UserHistory*>*)historyList;
 -(void)addHistory:(UserHistory*)model;
+-(LevelInfo*)levelInfo:(NSInteger)level;
 +(instancetype)sharedInstance;
 @end
 

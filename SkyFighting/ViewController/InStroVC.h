@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoadViewController : UIViewController
+@interface InStroVC : UIViewController
 
 @end

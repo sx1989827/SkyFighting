@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "Header.h"
 #import "MainTabVC.h"
-#import "LoadViewController.h"
+#import "InStroVC.h"
 #import "UserDefaults.h"
 @interface AppDelegate ()
 
@@ -23,7 +23,7 @@
     [[UINavigationBar appearance] setBarTintColor:COL(10,140,225,1.0)];
      [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     if (![[UserDefaults sharedInstance]isFirstLogin]) {
-        LoadViewController *loadView = [[LoadViewController alloc]init];
+        InStroVC *loadView = [[InStroVC alloc]init];
         self.window.rootViewController = loadView;
     }
     else
