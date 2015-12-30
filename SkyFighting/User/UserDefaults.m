@@ -8,6 +8,7 @@
 
 #import "UserDefaults.h"
 #import "Header.h"
+static NSMutableArray<LevelInfo*> *arrLevel;
 @implementation UserHistory
 -(instancetype)initWithCoder:(NSCoder *)aDecoder
 {
@@ -33,8 +34,23 @@
     [aCoder encodeInteger:_type forKey:@"type"];
 }
 @end
+@implementation LevelInfo
++(instancetype)info:(NSInteger)count BloodPlayer:(NSInteger)bloodPlayer BloodEnemy:(NSInteger)bloodEnemy DisplayGap:(NSInteger)displayGap FireGap:(NSInteger)fireGap BulletCount:(NSInteger)bulletCount BombCount:(NSInteger)bombCount LaserCount:(NSInteger)laserCount ProtectCount:(NSInteger)protectCount
+{
+    LevelInfo *info=[[LevelInfo alloc] init];
+    info.count=count;
+    info.bloodPlayer=bloodPlayer;
+    info.bloodEnemy=bloodEnemy;
+    info.displayGap=displayGap;
+    info.fireGap=fireGap;
+    info.bulletCount=bulletCount;
+    info.bombCount=bombCount;
+    info.laserCount=laserCount;
+    info.protectCount=protectCount;
+    return info;
+}
+@end
 @interface UserDefaults()
-
 @end
 @implementation UserDefaults
 -(BOOL)isFirstLogin
@@ -111,8 +127,26 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         obj=[[[self class] alloc] init];
+        arrLevel=[[NSMutableArray alloc] initWithCapacity:30];
+        LevelInfo *info=[LevelInfo info:5 BloodPlayer:400 BloodEnemy:100 DisplayGap:6 FireGap:5 BulletCount:200 BombCount:30 LaserCount:30 ProtectCount:10];
+        [arrLevel addObject:info];
+        info=[LevelInfo info:10 BloodPlayer:800 BloodEnemy:110 DisplayGap:5 FireGap:4 BulletCount:180 BombCount:25 LaserCount:25 ProtectCount:8];
+        [arrLevel addObject:info];
+        info=[LevelInfo info:15 BloodPlayer:1000 BloodEnemy:130 DisplayGap:5 FireGap:4 BulletCount:180 BombCount:20 LaserCount:20 ProtectCount:8];
+        [arrLevel addObject:info];
+        info=[LevelInfo info:20 BloodPlayer:1000 BloodEnemy:150 DisplayGap:4 FireGap:4 BulletCount:200 BombCount:20 LaserCount:20 ProtectCount:6];
+        [arrLevel addObject:info];
+        info=[LevelInfo info:25 BloodPlayer:1200 BloodEnemy:160 DisplayGap:4 FireGap:4 BulletCount:220 BombCount:20 LaserCount:20 ProtectCount:6];
+        [arrLevel addObject:info];
+        info=[LevelInfo info:30 BloodPlayer:1500 BloodEnemy:180 DisplayGap:3 FireGap:4 BulletCount:250 BombCount:20 LaserCount:20 ProtectCount:6];
+        [arrLevel addObject:info];
     });
     return obj;
+}
+
+-(LevelInfo*)levelInfo:(NSInteger)level
+{
+    return arrLevel[level];
 }
 @end
 

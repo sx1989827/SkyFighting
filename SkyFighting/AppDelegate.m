@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "Header.h"
 #import "MainTabVC.h"
-#import "LoadViewController.h"
+#import "InStroVC.h"
 #import "UserDefaults.h"
 @interface AppDelegate ()
 
@@ -21,7 +21,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     _window=[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     if (![[UserDefaults sharedInstance]isFirstLogin]) {
-        LoadViewController *loadView = [[LoadViewController alloc]init];
+        InStroVC *loadView = [[InStroVC alloc]init];
         self.window.rootViewController = loadView;
     }
     else

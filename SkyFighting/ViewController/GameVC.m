@@ -21,7 +21,7 @@
     [super viewDidLoad];
     self.bHud=NO;
     viewGame=(GameView*)self.view;
-    [viewGame setup:2 PlayerBlood:1000 EnemyBlood:200 DispalyGap:3 FireGap:1 BulletCount:100 BombCount:10 LaserCount:100 ProtectCount:2];
+    [viewGame setup:10 PlayerBlood:1000 EnemyBlood:200 DispalyGap:3 FireGap:1 BulletCount:100 BombCount:10 LaserCount:100 ProtectCount:2];
     viewGame.delegate=self;
 }
 

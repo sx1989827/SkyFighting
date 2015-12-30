@@ -323,7 +323,7 @@ typedef enum : NSInteger {
         CALayer * viewLayer = [view layer];
         [viewLayer setMasksToBounds:YES];
         [self.previewLayer setFrame:[UIScreen mainScreen].bounds];
-        [self.previewLayer setVideoGravity:AVLayerVideoGravityResizeAspect];
+        [self.previewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
         
         [viewLayer insertSublayer:self.previewLayer below:[[viewLayer sublayers] objectAtIndex:0]];
         
