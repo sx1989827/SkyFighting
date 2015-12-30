@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ScoreVC">
             <connections>
+                <outlet property="mainTable" destination="9in-eL-OsK" id="CDH-Jw-yY6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,7 +15,19 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9in-eL-OsK" customClass="LazyTableView">
+                    <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="9in-eL-OsK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="1Oc-Uk-J3D"/>
+                <constraint firstAttribute="trailing" secondItem="9in-eL-OsK" secondAttribute="trailing" id="9Ft-vq-8Mg"/>
+                <constraint firstItem="9in-eL-OsK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="aq1-Dp-w63"/>
+                <constraint firstAttribute="bottom" secondItem="9in-eL-OsK" secondAttribute="bottom" constant="49" id="svw-lP-Cra"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
