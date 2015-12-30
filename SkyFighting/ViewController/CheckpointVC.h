@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
+#import <LazyTableView.h>
 @interface CheckpointVC : BaseViewController
+@property (strong, nonatomic) IBOutlet LazyTableView *mainTableView;
 
 @end

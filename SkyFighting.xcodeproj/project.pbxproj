@@ -10,6 +10,8 @@
 		2261B96736FA70DC0788A989 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3171B4EA987A27A1D92D1D69 /* libPods.a */; };
 		B513570E1C32919B001891F9 /* CheckpointVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B513570C1C32919B001891F9 /* CheckpointVC.m */; };
 		B513570F1C32919B001891F9 /* CheckpointVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B513570D1C32919B001891F9 /* CheckpointVC.xib */; };
+		B51357181C33CDFB001891F9 /* DetailCheckpointCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B51357161C33CDFB001891F9 /* DetailCheckpointCell.m */; };
+		B51357191C33CDFB001891F9 /* DetailCheckpointCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B51357171C33CDFB001891F9 /* DetailCheckpointCell.xib */; };
 		B52CEDE61C2BEE8A008DE32B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B52CEDE51C2BEE8A008DE32B /* main.m */; };
 		B52CEDE91C2BEE8A008DE32B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B52CEDE81C2BEE8A008DE32B /* AppDelegate.m */; };
 		B52CEDF11C2BEE8A008DE32B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B52CEDF01C2BEE8A008DE32B /* Assets.xcassets */; };
@@ -67,6 +69,9 @@
 		B513570B1C32919B001891F9 /* CheckpointVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckpointVC.h; sourceTree = "<group>"; };
 		B513570C1C32919B001891F9 /* CheckpointVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckpointVC.m; sourceTree = "<group>"; };
 		B513570D1C32919B001891F9 /* CheckpointVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckpointVC.xib; sourceTree = "<group>"; };
+		B51357151C33CDFB001891F9 /* DetailCheckpointCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCheckpointCell.h; sourceTree = "<group>"; };
+		B51357161C33CDFB001891F9 /* DetailCheckpointCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCheckpointCell.m; sourceTree = "<group>"; };
+		B51357171C33CDFB001891F9 /* DetailCheckpointCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailCheckpointCell.xib; sourceTree = "<group>"; };
 		B52CEDE11C2BEE8A008DE32B /* SkyFighting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkyFighting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B52CEDE51C2BEE8A008DE32B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B52CEDE71C2BEE8A008DE32B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -405,6 +410,9 @@
 				B5D3F8461C2E87BC00C749A8 /* HistoryCell.h */,
 				B5D3F8471C2E87BC00C749A8 /* HistoryCell.m */,
 				B5D3F8491C2E87F200C749A8 /* HistoryCell.xib */,
+				B51357151C33CDFB001891F9 /* DetailCheckpointCell.h */,
+				B51357161C33CDFB001891F9 /* DetailCheckpointCell.m */,
+				B51357171C33CDFB001891F9 /* DetailCheckpointCell.xib */,
 			);
 			path = CustomCell;
 			sourceTree = "<group>";
@@ -500,6 +508,7 @@
 				B5D3F82C1C2E844500C749A8 /* HUDLoading3.png in Resources */,
 				B54FA2B01C3275BF003AB331 /* FirePartical.scnp in Resources */,
 				B5D3F82D1C2E844500C749A8 /* HUDLoading4.png in Resources */,
+				B51357191C33CDFB001891F9 /* DetailCheckpointCell.xib in Resources */,
 				B52CEDF11C2BEE8A008DE32B /* Assets.xcassets in Resources */,
 				B5D3F82A1C2E844500C749A8 /* HUDLoading1.png in Resources */,
 				B5D3F83B1C2E844500C749A8 /* AlertStatus.png in Resources */,
@@ -575,6 +584,7 @@
 				B5D3F8361C2E844500C749A8 /* SGGridMenu.m in Sources */,
 				B513570E1C32919B001891F9 /* CheckpointVC.m in Sources */,
 				B5D3F8281C2E844500C749A8 /* BaseViewController.m in Sources */,
+				B51357181C33CDFB001891F9 /* DetailCheckpointCell.m in Sources */,
 				B5D3F8421C2E844500C749A8 /* StartVC.m in Sources */,
 				B5D3F83C1C2E844500C749A8 /* TipView.m in Sources */,
 				B5D3F8481C2E87BC00C749A8 /* HistoryCell.m in Sources */,

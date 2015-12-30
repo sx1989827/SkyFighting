@@ -9,6 +9,7 @@
 #import "LoadViewController.h"
 #import "UserDefaults.h"
 #import "MainTabVC.h"
+#import "Util.h"
 @interface LoadViewController ()
 @property(strong,nonatomic)UIImageView*firstImageVeiw;
 @property(strong,nonatomic)UIImageView*secindImageView;
@@ -121,13 +122,10 @@
         {
             [[UserDefaults sharedInstance] incLoginCount];
             UITabBarController *tab=[[MainTabVC alloc] init];
-            tab.view.alpha=0;
             UIWindow *window = [[UIApplication sharedApplication]keyWindow];
-            [UIView animateWithDuration:0.5 animations:^{
-                window.rootViewController=tab;
-                tab.view.alpha=1;
-            } completion:^(BOOL finished) {
-            }];
+            window.rootViewController = tab;
+            [self dismiss];
+           
             break;
         }
         default:
