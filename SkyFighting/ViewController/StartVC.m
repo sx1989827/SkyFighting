@@ -50,7 +50,7 @@
 }
 - (IBAction)onSurvival:(id)sender
 {
-    
+    [self pushViewController:@"GameVC" Param:@{@"type":@1}];
 }
 @end
 

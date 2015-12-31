@@ -44,7 +44,7 @@
     [_mainTableView addStaticCell:40 CellBlock:^(id cell) {
         DetailCheckpointCell *cl=cell;
         cl.selectionStyle =UITableViewCellSelectionStyleNone;
-        cl.detailLabel.text = [NSString stringWithFormat:@"当前关卡:%ld",(long)integer];
+        cl.detailLabel.text = [NSString stringWithFormat:@"当前关卡:%ld",(long)(integer+1)];
     } ClickBlock:^(id cell) {
     }];
     [_mainTableView addStaticCell:40 CellBlock:^(id cell) {
