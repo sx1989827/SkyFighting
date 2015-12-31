@@ -117,8 +117,11 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)start:(id)sender {
-    [self pushViewController:@"GameVC" Param:@{@"level":[NSNumber numberWithInteger:level],
-                                               @"type":@0}];
+    [TipView showWithTitle:@"提示" Tip:@"请将手机面朝自己，置于自己正前方，点击确定，这样坐标能更精确的设定" Block:^{
+        [self pushViewController:@"GameVC" Param:@{@"level":[NSNumber numberWithInteger:level],
+                                                   @"type":@0}];
+    }];
+    
 }
 
 /*
