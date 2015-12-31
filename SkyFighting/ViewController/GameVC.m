@@ -23,9 +23,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     date=[NSDate date];
-    self.bHud=NO;
     viewGame=(GameView*)self.view;
-    [viewGame setup:2 PlayerBlood:1000 EnemyBlood:200 DispalyGap:10 FireGap:1 BulletCount:100 BombCount:10 LaserCount:100 ProtectCount:2];
+    if(type==0)
+    {
+        LevelInfo *info=[[UserDefaults sharedInstance] levelInfo:level];
+        [viewGame setup:info.count PlayerBlood:info.bloodPlayer EnemyBlood:info.bloodEnemy DispalyGap:info.displayGap FireGap:info.fireGap BulletCount:info.bulletCount BombCount:info.bombCount LaserCount:info.laserCount ProtectCount:info.protectCount];
+    }
+    else
+    {
+        [viewGame setup:1000 PlayerBlood:10000 EnemyBlood:500 DispalyGap:5 FireGap:5 BulletCount:9999 BombCount:999 LaserCount:99 ProtectCount:50];
+    }
     viewGame.delegate=self;
 }
 
@@ -33,6 +40,8 @@
 {
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden=YES;
+    [self removeHud];
+    self.bHud=NO;
     [viewGame start];
 }
 
