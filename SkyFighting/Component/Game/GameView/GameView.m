@@ -78,6 +78,7 @@ typedef enum : NSInteger {
     BOOL bProtect;
     AVCaptureMetadataOutput *output;
     BOOL bFace;
+    CMAttitude *initialAttitude;
 }
 @property (nonatomic, strong)       AVCaptureSession            * session;
 @property (nonatomic, strong)       AVCaptureDeviceInput        * videoInput;
@@ -98,29 +99,12 @@ typedef enum : NSInteger {
     if ([_manager isAccelerometerAvailable]) {
         [_manager setDeviceMotionUpdateInterval:1/60.0f];
         currentTime= [[NSDate date] timeIntervalSince1970]*1000;
-        __block CMAttitude *initialAttitude = _manager.deviceMotion.attitude;
-        GameView * __weak weakSelf = self;
+       initialAttitude = _manager.deviceMotion.attitude;
+        __weak GameView *weakSelf=self;
         if (_manager.deviceMotionAvailable) {
             [_manager startDeviceMotionUpdatesToQueue:[NSOperationQueue mainQueue]
                                           withHandler:^(CMDeviceMotion *data, NSError *error) {
-                                              if(initialAttitude==nil)
-                                              {
-                                                  initialAttitude = _manager.deviceMotion.attitude;
-                                                  [weakSelf initScene];
-                                                  return;
-                                              }
-                                              [data.attitude multiplyByInverseOfAttitude:initialAttitude];
-                                              atti=data.attitude;
-                                              if(data.attitude.roll<-M_PI_2 || data.attitude.roll>M_PI_2)
-                                              {
-                                                  [camera runAction:[SCNAction rotateToX: -data.attitude.pitch y:data.attitude.roll z:data.attitude.yaw duration:0]];
-                                              }
-                                              else
-                                              {
-                                                  [camera runAction:[SCNAction rotateToX: data.attitude.pitch y:data.attitude.roll z:data.attitude.yaw duration:0]];
-                                              }
-                                              
-                                              [viewRader setRorate:data.attitude.roll];
+                                              [weakSelf updateMotion:data];
                                           }];
         }
     }
@@ -139,6 +123,29 @@ typedef enum : NSInteger {
         [self.session startRunning];
     }
 }
+
+-(void)updateMotion:(CMDeviceMotion *)data
+{
+    if(initialAttitude==nil)
+    {
+        initialAttitude = _manager.deviceMotion.attitude;
+        [self initScene];
+        return;
+    }
+    [data.attitude multiplyByInverseOfAttitude:initialAttitude];
+    atti=data.attitude;
+    if(data.attitude.roll<-M_PI_2 || data.attitude.roll>M_PI_2)
+    {
+        [camera runAction:[SCNAction rotateToX: -data.attitude.pitch y:data.attitude.roll z:data.attitude.yaw duration:0]];
+    }
+    else
+    {
+        [camera runAction:[SCNAction rotateToX: data.attitude.pitch y:data.attitude.roll z:data.attitude.yaw duration:0]];
+    }
+    
+    [viewRader setRorate:data.attitude.roll];
+}
+
 
 -(void)initUI
 {
@@ -660,14 +667,6 @@ typedef enum : NSInteger {
     }
 }
 
-
--(void)dealloc
-{
-    if (self.session) {
-        [self.session stopRunning];
-    }
-}
-
 -(void)start
 {
     timer=[NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateRader) userInfo:nil repeats:YES];
@@ -790,13 +789,19 @@ typedef enum : NSInteger {
 
 -(void)stop
 {
+    if (self.session) {
+        [self.session stopRunning];
+    }
+    [_manager stopDeviceMotionUpdates];
     [viewScene.scene setPaused:YES];
     [timer invalidate];
     timer=nil;
     [timerDispaly invalidate];
     timerDispaly=nil;
     [link invalidate];
+    link=nil;
     [linkUpdate invalidate];
+    linkUpdate=nil;
 }
 
 -(void)setup:(NSInteger)count PlayerBlood:(NSInteger)playerBlood EnemyBlood:(NSInteger)enemyBlood DispalyGap:(float)displayGap FireGap:(float)fireGap BulletCount:(NSInteger)bullet BombCount:(NSInteger)bomb LaserCount:(NSInteger)laser ProtectCount:(NSInteger)protect
@@ -883,7 +888,7 @@ typedef enum : NSInteger {
     [newNode runAction:[SCNAction sequence:@[[SCNAction rotateByX:0 y:rY z:0 duration:0],[SCNAction rotateByAngle:rX aroundAxis:SCNVector3Make(normal.x, normal.y, normal.z) duration:0]]]];
     GLKVector3 vec=GLKVector3Make(0-xPos, 0-yPos, 0-zPos);
     vec=GLKVector3Normalize(vec);
-    [newNode runAction:[SCNAction repeatActionForever:[SCNAction moveBy:SCNVector3Make(vec.x, vec.y, vec.z) duration:0.1]]];
+    [newNode runAction:[SCNAction repeatActionForever:[SCNAction moveBy:SCNVector3Make(vec.x, vec.y, vec.z) duration:0.3]]];
     [viewRader setRadius:100];
     float len=sqrt(pow(newNode.position.x, 2)+pow(newNode.position.z, 2));
     NSInteger id= [viewRader addSpot:rY Len:len];
@@ -1130,7 +1135,6 @@ typedef enum : NSInteger {
     }
     bFace=NO;
 }
-
 @end
 
 
