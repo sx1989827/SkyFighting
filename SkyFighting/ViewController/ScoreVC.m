@@ -12,6 +12,7 @@
 @interface ScoreVC ()<LazyTableViewDelegate>
 {
     NSInteger  arrayCount;
+    BOOL  isFirst;
 }
 @property(nonatomic,strong)NSArray  *historyModelArray;
 @end
@@ -20,6 +21,12 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    _historyModelArray =[[UserDefaults sharedInstance] historyList];
+    if (arrayCount==_historyModelArray.count&&!isFirst) {
+        return;
+    }
+    else
+    {
         for (int i=0; i<_historyModelArray.count; i++) {
             UserHistory*history = [self.historyModelArray objectAtIndex:i];
             if (history.type==0) {
@@ -51,6 +58,9 @@
             }
         }
         [self.mainTable reloadStatic];
+    }
+    isFirst =NO;
+    arrayCount = _historyModelArray.count;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -61,6 +71,7 @@
     _historyModelArray =[[UserDefaults sharedInstance] historyList];
     arrayCount = _historyModelArray.count;
     [_mainTable registarCell:@"HistoryCell" StrItem:nil];
+    isFirst = YES;
     LazyTableBaseSection *sec = [[LazyTableBaseSection alloc]init];
     sec.headerHeight = 5;
     sec.titleHeader =@"";

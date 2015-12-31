@@ -23,7 +23,7 @@
     [[UINavigationBar appearance] setBarTintColor:COL(10,140,225,1.0)];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     [[UserDefaults sharedInstance] incLoginCount];
-    if (![[UserDefaults sharedInstance] isFirstLogin]) {
+    if ([[UserDefaults sharedInstance] isFirstLogin]) {
         InStroVC *loadView = [[InStroVC alloc]init];
         self.window.rootViewController = loadView;
     }
