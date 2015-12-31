@@ -31,6 +31,8 @@
 		B56E0E721C337A47004E6B79 /* laser.wav in Resources */ = {isa = PBXBuildFile; fileRef = B56E0E711C337A47004E6B79 /* laser.wav */; };
 		B56E0E741C337A84004E6B79 /* protect.wav in Resources */ = {isa = PBXBuildFile; fileRef = B56E0E731C337A84004E6B79 /* protect.wav */; };
 		B56E0E761C337ADA004E6B79 /* blood.wav in Resources */ = {isa = PBXBuildFile; fileRef = B56E0E751C337ADA004E6B79 /* blood.wav */; };
+		B56E0E811C340E84004E6B79 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B56E0E7F1C340E84004E6B79 /* icon.png */; };
+		B56E0E821C340E84004E6B79 /* icon128.png in Resources */ = {isa = PBXBuildFile; fileRef = B56E0E801C340E84004E6B79 /* icon128.png */; };
 		B5D3F8281C2E844500C749A8 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5D3F7F61C2E844500C749A8 /* BaseViewController.m */; };
 		B5D3F8291C2E844500C749A8 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = B5D3F7F81C2E844500C749A8 /* back.png */; };
 		B5D3F82A1C2E844500C749A8 /* HUDLoading1.png in Resources */ = {isa = PBXBuildFile; fileRef = B5D3F7F91C2E844500C749A8 /* HUDLoading1.png */; };
@@ -98,6 +100,8 @@
 		B56E0E711C337A47004E6B79 /* laser.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = laser.wav; sourceTree = "<group>"; };
 		B56E0E731C337A84004E6B79 /* protect.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = protect.wav; sourceTree = "<group>"; };
 		B56E0E751C337ADA004E6B79 /* blood.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = blood.wav; sourceTree = "<group>"; };
+		B56E0E7F1C340E84004E6B79 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		B56E0E801C340E84004E6B79 /* icon128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon128.png; sourceTree = "<group>"; };
 		B5D3F7F51C2E844500C749A8 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		B5D3F7F61C2E844500C749A8 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		B5D3F7F81C2E844500C749A8 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
@@ -201,6 +205,8 @@
 				B52CEDF01C2BEE8A008DE32B /* Assets.xcassets */,
 				B52CEDF21C2BEE8A008DE32B /* LaunchScreen.storyboard */,
 				B52CEDF51C2BEE8A008DE32B /* Info.plist */,
+				B56E0E7F1C340E84004E6B79 /* icon.png */,
+				B56E0E801C340E84004E6B79 /* icon128.png */,
 				B52CEDE41C2BEE8A008DE32B /* Supporting Files */,
 			);
 			path = SkyFighting;
@@ -459,6 +465,7 @@
 				TargetAttributes = {
 					B52CEDE01C2BEE8A008DE32B = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 2QJF2MXE5B;
 					};
 				};
 			};
@@ -487,8 +494,10 @@
 			files = (
 				B56E0E701C3379DA004E6B79 /* bomb.wav in Resources */,
 				B5D3F8391C2E844500C749A8 /* AlertLeft.png in Resources */,
+				B56E0E821C340E84004E6B79 /* icon128.png in Resources */,
 				B52CEE531C2F7E98008DE32B /* art.scnassets in Resources */,
 				B513570F1C32919B001891F9 /* CheckpointVC.xib in Resources */,
+				B56E0E811C340E84004E6B79 /* icon.png in Resources */,
 				B53917111C2F8BA700E9F0B1 /* GameVC.xib in Resources */,
 				B5D3F8411C2E844500C749A8 /* ScoreVC.xib in Resources */,
 				B56E0E741C337A84004E6B79 /* protect.wav in Resources */,
@@ -699,6 +708,7 @@
 			baseConfigurationReference = CD49B49B25C35B1A5D639267 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SkyFighting/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -712,6 +722,7 @@
 			baseConfigurationReference = D74D4AE0A390BDE6D7713197 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SkyFighting/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

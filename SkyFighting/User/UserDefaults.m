@@ -155,6 +155,13 @@ static NSMutableArray<LevelInfo*> *arrLevel;
     [user setInteger:0 forKey:@"level"];
     [user synchronize];
 }
+
+-(void)removeAllHistory
+{
+    NSUserDefaults *user=[NSUserDefaults standardUserDefaults];
+    [user removeObjectForKey:@"history"];
+    [user synchronize];
+}
 @end
 
 
