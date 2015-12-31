@@ -8,28 +8,68 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CheckpointVC">
             <connections>
                 <outlet property="mainTableView" destination="DNV-JA-2Jt" id="aWE-ui-rQ7"/>
+                <outlet property="startButton" destination="M48-Dg-rfu" id="9PN-QR-eUw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="603"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DNV-JA-2Jt" customClass="LazyTableView">
-                    <rect key="frame" x="0.0" y="64" width="320" height="499"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </tableView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kK2-jU-AIo">
+                    <rect key="frame" x="0.0" y="64" width="320" height="539"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DNV-JA-2Jt" customClass="LazyTableView">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="430"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="430" id="kUv-kc-ISL"/>
+                            </constraints>
+                        </tableView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M48-Dg-rfu">
+                            <rect key="frame" x="46" y="445" width="229" height="50"/>
+                            <color key="backgroundColor" red="0.29117599630000002" green="0.56903862900000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="SXM-pv-iJD"/>
+                                <constraint firstAttribute="width" constant="229" id="fSc-M6-4yz"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <color key="tintColor" red="0.29117599630000002" green="0.56903862900000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="开始">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="start:" destination="-1" eventType="touchUpInside" id="9vW-bU-HnI"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="DNV-JA-2Jt" secondAttribute="trailing" id="ADI-p7-Ulr"/>
+                        <constraint firstItem="M48-Dg-rfu" firstAttribute="centerX" secondItem="kK2-jU-AIo" secondAttribute="centerX" id="HCY-IS-LmA"/>
+                        <constraint firstItem="M48-Dg-rfu" firstAttribute="top" secondItem="DNV-JA-2Jt" secondAttribute="bottom" constant="15" id="MkM-1y-sSi"/>
+                        <constraint firstItem="M48-Dg-rfu" firstAttribute="top" secondItem="DNV-JA-2Jt" secondAttribute="bottom" constant="28" id="XI0-2N-lwJ"/>
+                        <constraint firstAttribute="bottom" secondItem="DNV-JA-2Jt" secondAttribute="bottom" constant="90" id="c3G-6z-TAt"/>
+                        <constraint firstItem="DNV-JA-2Jt" firstAttribute="leading" secondItem="kK2-jU-AIo" secondAttribute="leading" id="nnS-MU-LwZ"/>
+                        <constraint firstItem="DNV-JA-2Jt" firstAttribute="top" secondItem="kK2-jU-AIo" secondAttribute="top" id="o1Q-VW-GZC"/>
+                        <constraint firstItem="DNV-JA-2Jt" firstAttribute="centerX" secondItem="M48-Dg-rfu" secondAttribute="centerX" id="wGa-fX-lDp"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="XI0-2N-lwJ"/>
+                        </mask>
+                    </variation>
+                </scrollView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="DNV-JA-2Jt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5j0-PZ-54K"/>
-                <constraint firstAttribute="trailing" secondItem="DNV-JA-2Jt" secondAttribute="trailing" id="RRH-a6-yXu"/>
-                <constraint firstAttribute="bottom" secondItem="DNV-JA-2Jt" secondAttribute="bottom" constant="5" id="Rwl-fz-zlu"/>
-                <constraint firstItem="DNV-JA-2Jt" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="xMr-10-c1q"/>
+                <constraint firstItem="kK2-jU-AIo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mOk-oq-hRO"/>
+                <constraint firstAttribute="bottom" secondItem="kK2-jU-AIo" secondAttribute="bottom" id="sk6-Ke-uhi"/>
+                <constraint firstItem="kK2-jU-AIo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="ttq-Ee-YMF"/>
+                <constraint firstAttribute="trailing" secondItem="kK2-jU-AIo" secondAttribute="trailing" id="zCW-1t-TaK"/>
             </constraints>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-            <point key="canvasLocation" x="290" y="302"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="290" y="319.5"/>
         </view>
     </objects>
 </document>
