@@ -35,6 +35,7 @@
 -(void)resetLevel;
 -(NSArray<UserHistory*>*)historyList;
 -(void)addHistory:(UserHistory*)model;
+-(void)removeAllHistory;
 -(LevelInfo*)levelInfo:(NSInteger)level;
 +(instancetype)sharedInstance;
 @end

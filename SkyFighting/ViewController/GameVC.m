@@ -60,7 +60,7 @@
     obj.level=level;
     obj.bSuccess=bSuccess;
     obj.killCount=count;
-    obj.useTime=[date timeIntervalSinceNow];
+    obj.useTime=[[NSDate date] timeIntervalSinceDate:date];
     obj.type=type;
     [[UserDefaults sharedInstance] addHistory:obj];
     if(bSuccess)
