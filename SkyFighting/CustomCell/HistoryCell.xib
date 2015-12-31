@@ -82,19 +82,23 @@
                         </variation>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="05u-B1-15c">
-                        <rect key="frame" x="138" y="37" width="179" height="21"/>
+                        <rect key="frame" x="94" y="38" width="223" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="HQ1-jR-qWx"/>
                             <constraint firstAttribute="height" constant="21" id="WGh-Zi-GfY"/>
                             <constraint firstAttribute="width" constant="179" id="huD-Ag-p6J"/>
+                            <constraint firstAttribute="width" constant="223" id="sCU-WW-CXl"/>
                             <constraint firstAttribute="width" constant="164" id="vhe-wS-I0b"/>
+                            <constraint firstAttribute="height" constant="21" id="vye-BN-t8N"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="HQ1-jR-qWx"/>
                                 <exclude reference="WGh-Zi-GfY"/>
+                                <exclude reference="huD-Ag-p6J"/>
                                 <exclude reference="vhe-wS-I0b"/>
                             </mask>
                         </variation>
@@ -106,8 +110,10 @@
                     <constraint firstItem="WKy-lk-xCx" firstAttribute="top" secondItem="SB7-AK-B5C" secondAttribute="topMargin" id="4k9-b8-a8Q"/>
                     <constraint firstItem="LW3-A9-WGk" firstAttribute="leading" secondItem="SB7-AK-B5C" secondAttribute="leadingMargin" constant="5" id="5gK-Dy-onb"/>
                     <constraint firstItem="819-vZ-y1C" firstAttribute="trailing" secondItem="SB7-AK-B5C" secondAttribute="trailingMargin" id="9B6-rx-8bD"/>
+                    <constraint firstItem="05u-B1-15c" firstAttribute="trailing" secondItem="SB7-AK-B5C" secondAttribute="trailingMargin" id="FXN-8I-ade"/>
                     <constraint firstItem="LW3-A9-WGk" firstAttribute="top" secondItem="WKy-lk-xCx" secondAttribute="bottom" constant="8" id="Hlu-TA-ctY"/>
                     <constraint firstItem="TPQ-5g-B5Y" firstAttribute="top" secondItem="SB7-AK-B5C" secondAttribute="topMargin" id="JqB-BT-Tbb"/>
+                    <constraint firstItem="05u-B1-15c" firstAttribute="top" secondItem="TPQ-5g-B5Y" secondAttribute="bottom" constant="9" id="MOp-vQ-URf"/>
                     <constraint firstItem="WKy-lk-xCx" firstAttribute="leading" secondItem="SB7-AK-B5C" secondAttribute="leadingMargin" constant="5" id="RZG-4Z-bSE"/>
                     <constraint firstItem="05u-B1-15c" firstAttribute="top" secondItem="TPQ-5g-B5Y" secondAttribute="bottom" constant="8" id="Sbo-Xp-VP1"/>
                     <constraint firstItem="DXh-vf-Sfc" firstAttribute="leading" secondItem="SB7-AK-B5C" secondAttribute="leadingMargin" constant="5" id="Uym-HW-DWN"/>
@@ -117,16 +123,20 @@
                     <constraint firstItem="05u-B1-15c" firstAttribute="trailing" secondItem="SB7-AK-B5C" secondAttribute="trailingMargin" id="kPo-z5-XHn"/>
                     <constraint firstItem="05u-B1-15c" firstAttribute="trailing" secondItem="SB7-AK-B5C" secondAttribute="trailingMargin" id="kgH-u7-20S"/>
                     <constraint firstItem="819-vZ-y1C" firstAttribute="top" secondItem="05u-B1-15c" secondAttribute="bottom" constant="9" id="lV4-Ng-Kom"/>
+                    <constraint firstItem="819-vZ-y1C" firstAttribute="top" secondItem="05u-B1-15c" secondAttribute="bottom" constant="8" id="uY1-Nc-bqj"/>
                     <constraint firstItem="TPQ-5g-B5Y" firstAttribute="top" secondItem="SB7-AK-B5C" secondAttribute="topMargin" id="vYY-Bb-gLM"/>
                     <constraint firstItem="TPQ-5g-B5Y" firstAttribute="trailing" secondItem="SB7-AK-B5C" secondAttribute="trailingMargin" id="zAB-Qc-8Mc"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
+                        <exclude reference="Sbo-Xp-VP1"/>
+                        <exclude reference="g4z-5x-oma"/>
+                        <exclude reference="kPo-z5-XHn"/>
+                        <exclude reference="kgH-u7-20S"/>
                         <exclude reference="JqB-BT-Tbb"/>
                         <exclude reference="zAB-Qc-8Mc"/>
-                        <exclude reference="g4z-5x-oma"/>
-                        <exclude reference="kgH-u7-20S"/>
                         <exclude reference="9B6-rx-8bD"/>
+                        <exclude reference="ZIT-bw-Juv"/>
                         <exclude reference="lV4-Ng-Kom"/>
                     </mask>
                 </variation>

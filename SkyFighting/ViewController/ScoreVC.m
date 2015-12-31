@@ -10,10 +10,6 @@
 #import "UserDefaults.h"
 #import "HistoryCell.h"
 @interface ScoreVC ()<LazyTableViewDelegate>
-{
-    NSInteger  arrayCount;
-    BOOL  isFirst;
-}
 @property(nonatomic,strong)NSArray  *historyModelArray;
 @end
 
@@ -21,12 +17,8 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [_mainTable empty];
     _historyModelArray =[[UserDefaults sharedInstance] historyList];
-    if (arrayCount==_historyModelArray.count&&!isFirst) {
-        return;
-    }
-    else
-    {
         for (int i=0; i<_historyModelArray.count; i++) {
             UserHistory*history = [self.historyModelArray objectAtIndex:i];
             if (history.type==0) {
@@ -35,7 +27,7 @@
                     cl.selectionStyle =UITableViewCellSelectionStyleNone;
                     cl.tyoeLabel.text =@"闯关模式";
                     cl.levelLabel.text = [NSString stringWithFormat:@"等级:%d",history.level];
-                    cl.bSuccessLabel.text = history.bSuccess==0?@"已完成":@"未完成";
+                    cl.bSuccessLabel.text = history.bSuccess==0?@"未完成":@"已完成";
                     cl.killCountLabel.text = [NSString stringWithFormat:@"杀敌数:%d",history.killCount];
                     cl.userTimeLabel.text = [NSString stringWithFormat:@"用时:%ds",history.useTime];
                     cl.dateLabel.text = [NSString stringWithFormat:@"游戏时间:%@",history.date];
@@ -56,26 +48,27 @@
                     
                 }];
             }
-        }
         [self.mainTable reloadStatic];
     }
-    isFirst =NO;
-    arrayCount = _historyModelArray.count;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.bHud=NO;
     self.title=@"历史";
     [self hideBackButton];
+    UIBarButtonItem*right = [[UIBarButtonItem alloc]initWithTitle:@"清空" style:UIBarButtonItemStylePlain target:self action:@selector(clear)];
+    self.navigationItem.rightBarButtonItem = right;
     [self.mainTable setDelegateAndDataSource:self];
     _historyModelArray =[[UserDefaults sharedInstance] historyList];
-    arrayCount = _historyModelArray.count;
     [_mainTable registarCell:@"HistoryCell" StrItem:nil];
-    isFirst = YES;
     LazyTableBaseSection *sec = [[LazyTableBaseSection alloc]init];
     sec.headerHeight = 5;
     sec.titleHeader =@"";
     [_mainTable addSection:sec];
+}
+-(void)clear
+{
+    [[UserDefaults sharedInstance] removeAllHistory];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
