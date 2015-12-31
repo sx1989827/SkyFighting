@@ -38,17 +38,9 @@
 {
     [super viewWillAppear:animated];
     level= [[UserDefaults sharedInstance] level];
-    if (0<=level&&level<8) {
-        level++;
-    }
-    else
-    {
-        [TipView showWithTitle:@"恭喜你已通关！" Tip:@"提示" Block:^{
-        }];
-        return;
-    }
     LevelInfo*levelInfo = [[UserDefaults sharedInstance]levelInfo:level];
     __block typeof(NSInteger)integer = level;
+    [_mainTableView empty];
     [_mainTableView addStaticCell:40 CellBlock:^(id cell) {
         DetailCheckpointCell *cl=cell;
         cl.selectionStyle =UITableViewCellSelectionStyleNone;
