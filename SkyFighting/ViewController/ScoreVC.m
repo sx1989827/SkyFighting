@@ -18,7 +18,8 @@
 {
     [super viewWillAppear:animated];
     [_mainTable empty];
-    _historyModelArray =[[UserDefaults sharedInstance] historyList];
+    _historyModelArray =[[UserDefaults sharedInstance] historyList] ;
+    _historyModelArray=[[_historyModelArray reverseObjectEnumerator] allObjects];
         for (int i=0; i<_historyModelArray.count; i++) {
             UserHistory*history = [self.historyModelArray objectAtIndex:i];
             if (history.type==0) {
@@ -26,10 +27,10 @@
                     HistoryCell *cl=cell;
                     cl.selectionStyle =UITableViewCellSelectionStyleNone;
                     cl.tyoeLabel.text =@"闯关模式";
-                    cl.levelLabel.text = [NSString stringWithFormat:@"等级:%d",history.level];
+                    cl.levelLabel.text = [NSString stringWithFormat:@"等级:%ld",history.level+1];
                     cl.bSuccessLabel.text = history.bSuccess==0?@"未完成":@"已完成";
-                    cl.killCountLabel.text = [NSString stringWithFormat:@"杀敌数:%d",history.killCount];
-                    cl.userTimeLabel.text = [NSString stringWithFormat:@"用时:%ds",history.useTime];
+                    cl.killCountLabel.text = [NSString stringWithFormat:@"杀敌数:%ld",history.killCount];
+                    cl.userTimeLabel.text = [NSString stringWithFormat:@"用时:%lds",history.useTime];
                     cl.dateLabel.text = [NSString stringWithFormat:@"游戏时间:%@",history.date];
                 } ClickBlock:^(id cell) {
                     
@@ -41,8 +42,8 @@
                     HistoryCell *cl=cell;
                     cl.selectionStyle =UITableViewCellSelectionStyleNone;
                     cl.tyoeLabel.text = @"生存模式";
-                    cl.killCountLabel.text = [NSString stringWithFormat:@"杀敌数:%d",history.killCount];
-                    cl.userTimeLabel.text = [NSString stringWithFormat:@"用时:%ds",history.useTime];
+                    cl.killCountLabel.text = [NSString stringWithFormat:@"杀敌数:%ld",history.killCount];
+                    cl.userTimeLabel.text = [NSString stringWithFormat:@"用时:%lds",history.useTime];
                     cl.dateLabel.text = [NSString stringWithFormat:@"游戏时间:%@",history.date];
                 } ClickBlock:^(id cell) {
                     
@@ -57,6 +58,7 @@
     self.title=@"历史";
     [self hideBackButton];
     UIBarButtonItem*right = [[UIBarButtonItem alloc]initWithTitle:@"清空" style:UIBarButtonItemStylePlain target:self action:@selector(clear)];
+    right.tintColor=[UIColor whiteColor];
     self.navigationItem.rightBarButtonItem = right;
     [self.mainTable setDelegateAndDataSource:self];
     _historyModelArray =[[UserDefaults sharedInstance] historyList];

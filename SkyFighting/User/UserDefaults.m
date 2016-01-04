@@ -86,6 +86,10 @@ static NSMutableArray<LevelInfo*> *arrLevel;
 {
     NSUserDefaults *user=[NSUserDefaults standardUserDefaults];
     NSInteger level=[user integerForKey:@"level"];
+    if(level==7)
+    {
+        return;
+    }
     level++;
     [user setInteger:level forKey:@"level"];
     [user synchronize];
@@ -139,6 +143,10 @@ static NSMutableArray<LevelInfo*> *arrLevel;
         info=[LevelInfo info:25 BloodPlayer:1200 BloodEnemy:160 DisplayGap:4 FireGap:4 BulletCount:220 BombCount:20 LaserCount:20 ProtectCount:6];
         [arrLevel addObject:info];
         info=[LevelInfo info:30 BloodPlayer:1500 BloodEnemy:180 DisplayGap:3 FireGap:4 BulletCount:250 BombCount:20 LaserCount:20 ProtectCount:6];
+        [arrLevel addObject:info];
+        info=[LevelInfo info:35 BloodPlayer:1600 BloodEnemy:200 DisplayGap:3 FireGap:3 BulletCount:300 BombCount:20 LaserCount:20 ProtectCount:6];
+        [arrLevel addObject:info];
+        info=[LevelInfo info:40 BloodPlayer:1800 BloodEnemy:220 DisplayGap:3 FireGap:3 BulletCount:300 BombCount:15 LaserCount:15 ProtectCount:5];
         [arrLevel addObject:info];
     });
     return obj;

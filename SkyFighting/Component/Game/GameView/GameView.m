@@ -79,6 +79,7 @@ typedef enum : NSInteger {
     AVCaptureMetadataOutput *output;
     BOOL bFace;
     CMAttitude *initialAttitude;
+    SCNAudioSource *audioEnemy;
 }
 @property (nonatomic, strong)       AVCaptureSession            * session;
 @property (nonatomic, strong)       AVCaptureDeviceInput        * videoInput;
@@ -122,6 +123,10 @@ typedef enum : NSInteger {
     if (self.session) {
         [self.session startRunning];
     }
+    audioEnemy=[SCNAudioSource audioSourceNamed:@"plane.wav"];
+    audioEnemy.positional = YES;
+    audioEnemy.loops = YES;
+    [audioEnemy load];
 }
 
 -(void)updateMotion:(CMDeviceMotion *)data
@@ -423,7 +428,7 @@ typedef enum : NSInteger {
             [link invalidate];
         }
         link=[CADisplayLink displayLinkWithTarget:self selector:@selector(drawPan:)];
-        [link addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+        [link addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
         direction = kCameraMoveDirectionNone;
     }
     else if(gestureRecognize.state==UIGestureRecognizerStateEnded || gestureRecognize.state==UIGestureRecognizerStateCancelled)
@@ -556,6 +561,7 @@ typedef enum : NSInteger {
     SCNBox *box=[SCNBox boxWithWidth:0.1 height:0.1 length:0.2 chamferRadius:5];
     box.firstMaterial.diffuse.contents=[UIColor redColor];
     SCNNode *node=[SCNNode nodeWithGeometry:box];
+    node.name=[NSString stringWithFormat:@"%ld",(NSInteger)[[NSDate date] timeIntervalSince1970]*1000];
     node.physicsBody=[SCNPhysicsBody bodyWithType:SCNPhysicsBodyTypeDynamic shape:[SCNPhysicsShape shapeWithNode:node options:nil]];
     node.physicsBody.categoryBitMask=BULLETFLAG;
     node.physicsBody.collisionBitMask=0x0;
@@ -606,7 +612,8 @@ typedef enum : NSInteger {
     else if(node1.physicsBody.categoryBitMask==ENEMYFLAG && node2.physicsBody.categoryBitMask==BOMBFLAG)
     {
         SCNVector3 vec=contact.contactPoint;
-        [node2 removeFromParentNode];
+        [node2 removeAllActions];
+        [node2 runAction:[SCNAction removeFromParentNode]];
         NSMutableArray *arr=[[NSMutableArray alloc] initWithCapacity:30];
         for(EnemyNode *node in arrEnemy)
         {
@@ -632,7 +639,8 @@ typedef enum : NSInteger {
     }
     else if(node1.physicsBody.categoryBitMask==ENEMYFLAG && node2.physicsBody.categoryBitMask==BULLETFLAG)
     {
-        [node2 removeFromParentNode];
+        [node2 removeAllActions];
+        [node2 runAction:[SCNAction removeFromParentNode]];
         EnemyNode *node=(EnemyNode*)node1;
         node.blood-=20;
         if(node.blood<=0)
@@ -673,7 +681,7 @@ typedef enum : NSInteger {
     timerDispaly=[NSTimer scheduledTimerWithTimeInterval:gapDisplay target:self selector:@selector(generateEnemy) userInfo:nil repeats:YES];
     linkUpdate=[CADisplayLink displayLinkWithTarget:self selector:@selector(update:)];
     linkUpdate.frameInterval=2;
-    [linkUpdate addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+    [linkUpdate addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
 }
 
 -(void)update:(CADisplayLink*)disLink
@@ -749,7 +757,8 @@ typedef enum : NSInteger {
         {
             bloodPlayer-=40;
             [arr addObject:node];
-            [node removeFromParentNode];
+            [node removeAllActions];
+            [node runAction:[SCNAction removeFromParentNode]];
             [self setPlayerBlood:bloodPlayer];
             UIView *view=[[UIView alloc] initWithFrame:viewScene.bounds];
             view.backgroundColor=[UIColor clearColor];
@@ -767,7 +776,8 @@ typedef enum : NSInteger {
         else if(bProtect && len<=30)
         {
             [arr addObject:node];
-            [node removeFromParentNode];
+            [node removeAllActions];
+            [node runAction:[SCNAction  removeFromParentNode]];
         }
     }
     [arrEnemyBullet removeObjectsInArray:arr];
@@ -793,6 +803,7 @@ typedef enum : NSInteger {
         [self.session stopRunning];
     }
     [_manager stopDeviceMotionUpdates];
+    [viewScene.scene.rootNode removeAllAudioPlayers];
     [viewScene.scene setPaused:YES];
     [timer invalidate];
     timer=nil;
@@ -831,6 +842,7 @@ typedef enum : NSInteger {
     }
     enemyCount--;
     EnemyNode *newNode=[EnemyNode node];
+    newNode.name=[NSString stringWithFormat:@"%ld",(NSInteger)[[NSDate date] timeIntervalSince1970]*1000];
     SCNNode *node= [ship clone];
     node.hidden=NO;
     [newNode addChildNode:node];
@@ -840,7 +852,7 @@ typedef enum : NSInteger {
     float zPos=arc4random()%20+60;
     zPos=arc4random()%2?zPos:-zPos;
     newNode.position=SCNVector3Make(xPos,yPos, zPos);
-    newNode.physicsBody=[SCNPhysicsBody bodyWithType:SCNPhysicsBodyTypeDynamic shape:[SCNPhysicsShape shapeWithNode:newNode options:nil]];
+    newNode.physicsBody=[SCNPhysicsBody dynamicBody];
     newNode.physicsBody.categoryBitMask=ENEMYFLAG;
     newNode.physicsBody.collisionBitMask=0x0;
     newNode.physicsBody.contactTestBitMask=PLAYFLAG|BULLETFLAG;
@@ -898,11 +910,7 @@ typedef enum : NSInteger {
     [newNode runAction:[SCNAction sequence:@[[SCNAction waitForDuration:gapFire],[SCNAction runBlock:^(SCNNode * _Nonnull node) {
         [self generateEnemyBullet:newNode.position RX:rX RY:rY RotationNormal:SCNVector3Make(normal.x, normal.y, normal.z)];
     }]]]];
-    SCNAudioSource *audio=[SCNAudioSource audioSourceNamed:@"plane.wav"];
-    audio.positional = YES;
-    audio.loops = YES;
-    [audio load];
-    SCNAudioPlayer *play=[SCNAudioPlayer audioPlayerWithSource:audio];
+    SCNAudioPlayer *play=[SCNAudioPlayer audioPlayerWithSource:audioEnemy];
     [newNode addAudioPlayer:play];
 }
 
@@ -958,7 +966,7 @@ typedef enum : NSInteger {
     SCNBox *box=[SCNBox boxWithWidth:0.1 height:0.1 length:0.2 chamferRadius:5];
     box.firstMaterial.diffuse.contents=[UIColor redColor];
     SCNNode *node=[SCNNode nodeWithGeometry:box];
-    node.physicsBody=[SCNPhysicsBody bodyWithType:SCNPhysicsBodyTypeDynamic shape:[SCNPhysicsShape shapeWithNode:node options:nil]];
+    node.physicsBody=[SCNPhysicsBody dynamicBody];
     node.physicsBody.categoryBitMask=ENEMYBULLETFLAG;
     node.physicsBody.collisionBitMask=0x0;
     node.physicsBody.contactTestBitMask=PLAYFLAG;
@@ -985,7 +993,8 @@ typedef enum : NSInteger {
     SCNSphere *sphere=[SCNSphere sphereWithRadius:2];
     sphere.firstMaterial.diffuse.contents=[UIColor blackColor];
     SCNNode *node=[SCNNode nodeWithGeometry:sphere];
-    node.physicsBody=[SCNPhysicsBody bodyWithType:SCNPhysicsBodyTypeDynamic shape:[SCNPhysicsShape shapeWithNode:node options:nil]];
+    node.name=[NSString stringWithFormat:@"%ld",(NSInteger)[[NSDate date] timeIntervalSince1970]*1000];
+    node.physicsBody=[SCNPhysicsBody dynamicBody];
     node.physicsBody.categoryBitMask=BOMBFLAG;
     node.physicsBody.collisionBitMask=0x0;
     node.physicsBody.contactTestBitMask=ENEMYFLAG;
@@ -1027,7 +1036,8 @@ typedef enum : NSInteger {
             SCNTorus *box=[SCNTorus torusWithRingRadius:20 pipeRadius:5];
             box.firstMaterial.diffuse.contents=COL(arc4random()%256, arc4random()%256, arc4random()%256, 1);
             SCNNode *node=[SCNNode nodeWithGeometry:box];
-            node.physicsBody=[SCNPhysicsBody bodyWithType:SCNPhysicsBodyTypeDynamic shape:[SCNPhysicsShape shapeWithNode:node options:nil]];
+            node.name=[NSString stringWithFormat:@"%ld",(NSInteger)[[NSDate date] timeIntervalSince1970]*1000];
+            node.physicsBody=[SCNPhysicsBody dynamicBody];
             node.physicsBody.categoryBitMask=LASERFLAG;
             node.physicsBody.collisionBitMask=0x0;
             node.physicsBody.contactTestBitMask=ENEMYFLAG;
@@ -1102,16 +1112,18 @@ typedef enum : NSInteger {
                         {
                             if(bloodPlayer+100<=bloodOriginPlayer)
                             {
-                                 [self setPlayerBlood:bloodPlayer+100];
+                                bloodPlayer+=100;
+                                 [self setPlayerBlood:bloodPlayer];
                             }
                            else
                            {
+                               bloodPlayer=bloodOriginPlayer;
                                [self setPlayerBlood:bloodOriginPlayer];
                            }
                            [viewScene.scene.rootNode runAction:[SCNAction playAudioSource:[SCNAudioSource audioSourceNamed:@"blood.wav"] waitForCompletion:NO]];
                             CGRect frame=transformedMetadataObject.bounds;
-                            frame.origin.x-=10;
-                            frame.size.width+=20;
+                            frame.origin.x-=20;
+                            frame.size.width+=40;
                             UILabel *lb=[[UILabel alloc] initWithFrame:frame];
                             [self addSubview:lb];
                             lb.font=[UIFont fontWithName:@"Chalkduster" size:22];

@@ -7,17 +7,20 @@
 //
 
 #import "EnemyNode.h"
-
+static SCNAudioSource *source;
 @implementation EnemyNode
 -(void)fire
 {
     SCNParticleSystem *sys=[SCNParticleSystem particleSystemNamed:@"FirePartical" inDirectory:nil];
     [self addParticleSystem:sys];
     [self removeAllAudioPlayers];
-    SCNAudioSource *source=[SCNAudioSource audioSourceNamed:@"blast.wav"];
-    source.positional=YES;
-    source.volume=0.5;
-    [source load];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        source=[SCNAudioSource audioSourceNamed:@"blast.wav"];
+        source.positional=YES;
+        source.volume=0.5;
+        [source load];
+    });
     [self addAudioPlayer:[SCNAudioPlayer audioPlayerWithSource:source]];
 }
 @end

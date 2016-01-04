@@ -26,11 +26,13 @@
     _fourImageView.userInteractionEnabled = YES;
     _fourImageView.tag = 104;
     _fourImageView.backgroundColor = [UIColor greenColor];
+    _fourImageView.image=[UIImage imageNamed:@"fourLoad"];
     [self.view addSubview:_fourImageView];
     _thirdImageView = [[UIImageView alloc]initWithFrame:self.view.bounds];
     _thirdImageView.userInteractionEnabled = YES;
     _thirdImageView.tag = 102;
     _thirdImageView.backgroundColor = [UIColor yellowColor];
+    _thirdImageView.image=[UIImage imageNamed:@"thirdLoad"];
     [self.view addSubview:_thirdImageView];
     _secindImageView = [[UIImageView alloc]initWithFrame:self.view.bounds];
     _secindImageView.userInteractionEnabled = YES;

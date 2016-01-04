@@ -9,6 +9,7 @@
 #import "GameVC.h"
 #import "GameView.h"
 #import "Header.h"
+#import "IntroView.h"
 @interface GameVC ()<GameViewDelegate>
 {
     GameView *viewGame;
@@ -42,7 +43,45 @@
     self.navigationController.navigationBarHidden=YES;
     [self removeHud];
     self.bHud=NO;
-    [viewGame start];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    if(type==0 && level==0)
+    {
+        [IntroView showTitle:@[@{
+                                   @"title":@"这里是你的你的血条，手指在屏幕上向上然后向右滑动一次，开启人脸检测，检测到多少张人脸，就加多少血!",
+                                   @"rect":[NSValue valueWithCGRect:CGRectMake(20, 100, 300, 100)],
+                                   @"view":[viewGame valueForKey:@"lbBlood"]
+                                   },@{
+                                   @"title":@"这里是你的子弹数目，瞄准敌机，点击屏幕，发射子弹！",
+                                   @"rect":[NSValue valueWithCGRect:CGRectMake(20, 100, 300, 60)],
+                                   @"view":[viewGame valueForKey:@"lbBullet"]
+                                   },@{@"title":@"这里是你的炸弹数目，瞄准敌机，手指在屏幕上向下然后向右滑动一次，放出炸弹！",
+                                       @"rect":[NSValue valueWithCGRect:CGRectMake(20, 120, 300, 100)],
+                                       @"view":[viewGame valueForKey:@"lbBomb"]
+                                       },@{@"title":@"这里是你的圣光数目，瞄准敌机，手指在屏幕上迅速画一个五角星，放出华丽的大招，可以毁灭一切敌人！",
+                                           @"rect":[NSValue valueWithCGRect:CGRectMake(20, 150, 300, 100)],
+                                           @"view":[viewGame valueForKey:@"lbLaser"]
+                                           },@{@"title":@"这里是你的保护罩数目，当敌人接近时，长按屏幕张开防护罩，自己可以免除一切攻击！",
+                                               @"rect":[NSValue valueWithCGRect:CGRectMake(20, 200, 300, 100)],
+                                               @"view":[viewGame valueForKey:@"lbProtect"]
+                                               }] Block:^{
+                                                   [viewGame start];
+                                               }];
+    }
+    else if(type==1)
+    {
+        [TipView showWithTitle:@"求生模式" Tip:@"在求生模式下，敌人无限多，你需要尽可能多的去消灭他们，祝你好运！" Block:^{
+            [viewGame start];
+        }];
+    }
+    else
+    {
+        [viewGame start];
+    }
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated

@@ -16,7 +16,18 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="load" translatesAutoresizingMaskIntoConstraints="NO" id="EJN-Dg-PnK">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="EJN-Dg-PnK" secondAttribute="trailing" id="2au-Fb-9U1"/>
+                            <constraint firstItem="EJN-Dg-PnK" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="DcN-r2-Qvi"/>
+                            <constraint firstItem="EJN-Dg-PnK" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="IhY-ic-MFC"/>
+                            <constraint firstAttribute="bottom" secondItem="EJN-Dg-PnK" secondAttribute="bottom" id="nY3-5t-RRy"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
@@ -25,4 +36,7 @@
             <point key="canvasLocation" x="203" y="354"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="load" width="714" height="1198"/>
+    </resources>
 </document>
