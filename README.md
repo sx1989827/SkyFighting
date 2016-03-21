@@ -1,6 +1,10 @@
 #SkyFighting
 
-这是国内目前第一款集合了AR实景，3D游戏和人脸识别的射击游戏，通过旋转和改变手机的角度与位置，所有的射击操作都靠手势来完成，目前所有的源码全部都在这里。
+![](https://github.com/sx1989827/SkyFighting/raw/master/1.jpeg)
+
+![](https://github.com/sx1989827/SkyFighting/raw/master/2.jpeg)
+
+这是国内目前第一款集合了AR实景，3D游戏和人脸识别的射击游戏，通过旋转和改变手机的角度与位置，所有的射击操作都靠手势来完成，目前所有的源码全部都在这里。appStore地址：https://itunes.apple.com/us/app/sky-fighting/id1070732279?l=zh&ls=1&mt=8
 
 #如何操作：
 1.移动手机瞄准敌机。
